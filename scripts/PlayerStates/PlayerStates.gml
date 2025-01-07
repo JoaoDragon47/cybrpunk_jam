@@ -12,6 +12,12 @@ function PlayerStateWalk(){
 	PlayerDetectJumpKey();
 }
 
+function PlayerStateJump(){
+	PlayerDetectMovement();
+	
+	PlayerDetectJumpKey();
+}
+
 function PlayerStateDash(){
 	dashTimerDuration--;
 	hspd=lengthdir_x(dashSpd,dir);

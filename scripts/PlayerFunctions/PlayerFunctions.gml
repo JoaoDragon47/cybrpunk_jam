@@ -41,9 +41,25 @@ function PlayerDetectMovement(){
 
 function PlayerDetectJumpKey(){
 	if(isOnFloor){
-		if(jumpKey){
-			vspd=-jumpSpd;
-		}
+		jumpCount=0;
+		coyoteTimer=coyoteFrames;
+	}else{
+		if(coyoteTimer>0) {coyoteTimer--}
+		if(coyoteTimer<=0 and jumpCount==0){jumpCount=1}
+	}
+	
+	if(pressJumpKey and (jumpCount<jumpMax and (jumpCount==0 ? coyoteTimer>0 : true))){
+		jumpCount++;
+		coyoteTimer=coyoteFrames;
+		jumpTimer=jumpHoldFrames;
+	}
+		
+	if(!holdJumpKey) jumpTimer=0;
+		
+	if(jumpTimer>0){
+		jumpTimer--;
+		
+		vspd=-jumpSpd;
 	}
 }
 

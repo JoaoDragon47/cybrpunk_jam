@@ -12,7 +12,14 @@ right=-1;
 left=-1;
 
 jumpSpd=5.2;
-jumpKey=-1;
+pressJumpKey=-1;
+holdJumpKey=-1;
+jumpHoldFrames=FRAME*.01;
+jumpTimer=jumpHoldFrames;
+coyoteFrames=FRAME*.15;
+coyoteTimer=coyoteFrames;
+jumpMax=1;
+jumpCount=0;
 
 dashSpd=10;
 dashKey=-1;
