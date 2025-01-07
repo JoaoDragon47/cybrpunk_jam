@@ -18,7 +18,7 @@ function PlayerDetectCollision(){
 }
 
 function PlayerDetectMovement(){
-	hspd=(right-left);
+	hspd=(InputsFunctions.HoldRight()-InputsFunctions.HoldLeft());
 	if(!isOnFloor){
 		vspd+=GRAVITY*density;
 	}
@@ -48,13 +48,13 @@ function PlayerDetectJumpKey(){
 		if(coyoteTimer<=0 and jumpCount==0){jumpCount=1}
 	}
 	
-	if(pressJumpKey and (jumpCount<jumpMax and (jumpCount==0 ? coyoteTimer>0 : true))){
+	if(InputsFunctions.PressJump() and (jumpCount<jumpMax and (jumpCount==0 ? coyoteTimer>0 : true))){
 		jumpCount++;
 		coyoteTimer=coyoteFrames;
 		jumpTimer=jumpHoldFrames;
 	}
 		
-	if(!holdJumpKey) jumpTimer=0;
+	if(!InputsFunctions.HoldJump()) jumpTimer=0;
 		
 	if(jumpTimer>0){
 		jumpTimer--;
@@ -65,11 +65,17 @@ function PlayerDetectJumpKey(){
 
 function PlayerDetectDashKey(){
 	if(canDash and isOnFloor){
-		if(dashKey){
+		if(InputsFunctions.PressDash()){
 			dashTimer=dashCooldown;
 			dashTimerDuration=dashDuration;
 			canDash=false;
 			state=PlayerStateDash;
 		}
+	}
+}
+
+function PlayerDetectAttack(){
+	if(InputsFunctions.PressAttack()){
+		
 	}
 }

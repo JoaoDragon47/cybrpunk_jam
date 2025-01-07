@@ -11,12 +11,12 @@ density=1;
 right=-1;
 left=-1;
 
-jumpSpd=5.2;
+jumpSpd=3.5;
 pressJumpKey=-1;
 holdJumpKey=-1;
-jumpHoldFrames=FRAME*.01;
+jumpHoldFrames=FRAME*.25;
 jumpTimer=jumpHoldFrames;
-coyoteFrames=FRAME*.15;
+coyoteFrames=FRAME*.18;
 coyoteTimer=coyoteFrames;
 jumpMax=1;
 jumpCount=0;

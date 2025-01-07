@@ -12,6 +12,8 @@ function PlayerStateWalk(){
 	PlayerDetectJumpKey();
 }
 
+#region AÇÕES PADRÕES
+
 function PlayerStateJump(){
 	PlayerDetectMovement();
 	
@@ -19,6 +21,7 @@ function PlayerStateJump(){
 }
 
 function PlayerStateDash(){
+	coyoteTimer=coyoteFrames;
 	dashTimerDuration--;
 	hspd=lengthdir_x(dashSpd,dir);
 	
@@ -32,3 +35,13 @@ function PlayerStateDash(){
 		state=PlayerStateIdle;
 	}
 }
+
+#endregion
+
+#region ATAQUES
+
+function PlayerStateAttack(){
+	
+}
+
+#endregion

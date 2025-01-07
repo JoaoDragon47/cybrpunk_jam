@@ -40,6 +40,7 @@
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"PlayerFunctions","path":"scripts/PlayerFunctions/PlayerFunctions.yy",},},
     {"id":{"name":"PlayerStates","path":"scripts/PlayerStates/PlayerStates.yy",},},
+    {"id":{"name":"Variables","path":"scripts/Variables/Variables.yy",},},
     {"id":{"name":"sprCollider","path":"sprites/sprCollider/sprCollider.yy",},},
     {"id":{"name":"sprPlayer","path":"sprites/sprPlayer/sprPlayer.yy",},},
   ],
