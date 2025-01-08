@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"PlayerFunctions",
+  "%Name":"EnemiesStates",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"PlayerFunctions",
+  "name":"EnemiesStates",
   "parent":{
-    "name":"Player",
-    "path":"folders/Scripts/Player.yy",
+    "name":"Enemies",
+    "path":"folders/Scripts/Enemies.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

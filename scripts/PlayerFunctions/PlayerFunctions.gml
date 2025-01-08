@@ -1,4 +1,4 @@
-function PlayerDetectCollision(){
+function DetectCollision(){
 	if(place_meeting(x+hspd,y,objCollider)){
 		while(!place_meeting(x+sign(hspd),y,objCollider)){
 			x+=sign(hspd);
@@ -18,25 +18,33 @@ function PlayerDetectCollision(){
 }
 
 function PlayerDetectMovement(){
-	hspd=(InputsFunctions.HoldRight()-InputsFunctions.HoldLeft());
+	hspd=(InputsFunctions.HoldRight()-InputsFunctions.HoldLeft())*spd;
 	if(!isOnFloor){
 		vspd+=GRAVITY*density;
 	}
 	
-	if(hspd!=0){
-		dir=point_direction(x,y,x+hspd,y);
-		spd=walkSpd;
-		
-		state=PlayerStateWalk;
-	}else{
-		spd=0;
-		
-		state=PlayerStateIdle;
+	PlayerDetectState();
+	
+	DetectCollision();
+}
+
+function PlayerDetectState(){
+	if(!isInAction){
+		if(jumpTimer<=0){
+			if(isOnFloor){
+				if(hspd!=0){
+					dir=point_direction(x,y,x+hspd,y);
+					state=PlayerStateWalk;
+				}else{
+					state=PlayerStateIdle;
+				}
+			}else{
+				state=PlayerStateFall;
+			}
+		}else{
+			state=PlayerStateJump;
+		}
 	}
-	
-	hspd=lengthdir_x(spd,dir);
-	
-	PlayerDetectCollision();
 }
 
 function PlayerDetectJumpKey(){
@@ -52,6 +60,8 @@ function PlayerDetectJumpKey(){
 		jumpCount++;
 		coyoteTimer=coyoteFrames;
 		jumpTimer=jumpHoldFrames;
+		
+		state=PlayerStateJump;
 	}
 		
 	if(!InputsFunctions.HoldJump()) jumpTimer=0;
@@ -75,7 +85,62 @@ function PlayerDetectDashKey(){
 }
 
 function PlayerDetectAttack(){
-	if(InputsFunctions.PressAttack()){
+	if(isOnFloor){
+		if(InputsFunctions.PressAttack()){
+			attackCharge=0;
+			isInAction=true;
+			state=PlayerStateChargeAttack;
+		}
+	}
+}
+
+function PlayerChooseAttack(){
+	var _dirAtk=dir==180 ? -1 : 1;
+	if(attackCharge<minAttackCharge1){
+		//ATAQUE PADRÃO
+		var _hit=instance_create_layer(x,y,"attacks",objHitboxAttack,{
+			image_xscale: _dirAtk
+		});
+		_hit.target=self;
+		hitForce=hitForceBase;
+		damage=attackBaseDamage;
 		
+		state=PlayerStateBasicAttack;
+	}else{
+		if(attackCharge>=minAttackCharge2){
+			//ATAQUE CARREGADO 2
+			var _hit=instance_create_layer(x,y,"attacks",objHitboxAttack,{
+				image_blend: c_red,
+				image_xscale: _dirAtk*2,
+				image_yscale: 2
+			});
+			_hit.target=self;
+			hitForce=hitForceBase*3;
+			damage=attackBaseDamage*3;
+			
+			state=PlayerStateChargedAttack2;
+		}else{
+			//ATAQUE CARREGADO 1
+			var _hit=instance_create_layer(x,y,"attacks",objHitboxAttack,{
+				image_blend: c_yellow,
+				image_xscale: _dirAtk
+			});
+			_hit.target=self;
+			hitForce=hitForceBase*1.5;
+			damage=attackBaseDamage*1.5;
+			
+			state=PlayerStateChargedAttack1;
+		}
+	}
+	
+	image_index=0;
+	attackCharge=0;
+}
+
+function PlayerAttackEnd(){
+	if(EndAnimation()){
+		image_index=0;
+		isInAction=false;
+		state=PlayerStateIdle;
 	}
 }

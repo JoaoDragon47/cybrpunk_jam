@@ -1,3 +1,11 @@
+#region MACROS
+
+#macro GRAVITY .24
+#macro FRAME game_get_speed(gamespeed_fps)
+
+#endregion
+
+#region GLOBALVARS
 globalvar Inputs;
 Inputs={
 	right:		ord("D"),
@@ -29,3 +37,5 @@ InputsFunctions={
 	ReleasedAttack:		function(){return mouse_check_button_released(Inputs.attack)},
 	ReleasedShield:		function(){return mouse_check_button_released(Inputs.shield)}
 }
+
+#endregion

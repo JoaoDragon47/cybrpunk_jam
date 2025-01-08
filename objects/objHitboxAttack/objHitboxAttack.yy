@@ -1,21 +1,21 @@
 {
   "$GMObject":"",
-  "%Name":"objPlayer",
+  "%Name":"objHitboxAttack",
   "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":7,"eventType":7,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":1,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"objHitbox","path":"objects/objHitbox/objHitbox.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"objPlayer",
+  "name":"objHitboxAttack",
   "overriddenProperties":[],
   "parent":{
     "name":"Entities",
     "path":"folders/Objects/Entities.yy",
   },
   "parentObjectId":{
-    "name":"objEntitie",
-    "path":"objects/objEntitie/objEntitie.yy",
+    "name":"objHitbox",
+    "path":"objects/objHitbox/objHitbox.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,
@@ -35,8 +35,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprPlayer",
-    "path":"sprites/sprPlayer/sprPlayer.yy",
+    "name":"sprHitboxAttack",
+    "path":"sprites/sprHitboxAttack/sprHitboxAttack.yy",
   },
   "spriteMaskId":null,
   "visible":true,

@@ -3,6 +3,7 @@ function PlayerStateIdle(){
 	
 	PlayerDetectDashKey();
 	PlayerDetectJumpKey();
+	PlayerDetectAttack();
 }
 
 function PlayerStateWalk(){
@@ -10,11 +11,18 @@ function PlayerStateWalk(){
 	
 	PlayerDetectDashKey();
 	PlayerDetectJumpKey();
+	PlayerDetectAttack();
 }
 
 #region AÇÕES PADRÕES
 
 function PlayerStateJump(){
+	PlayerDetectMovement();
+	
+	PlayerDetectJumpKey();
+}
+
+function PlayerStateFall(){
 	PlayerDetectMovement();
 	
 	PlayerDetectJumpKey();
@@ -26,10 +34,11 @@ function PlayerStateDash(){
 	hspd=lengthdir_x(dashSpd,dir);
 	
 	instance_create_layer(x,y,layer,objTrail,{
-		sprite_index: other.sprite_index
+		sprite_index: other.sprite_index,
+		image_index: other.image_index
 	})
 	
-	PlayerDetectCollision();
+	DetectCollision();
 	
 	if(dashTimerDuration<=0){
 		state=PlayerStateIdle;
@@ -40,8 +49,34 @@ function PlayerStateDash(){
 
 #region ATAQUES
 
-function PlayerStateAttack(){
+function PlayerStateChargeAttack(){
+	attackCharge++;
+	attackCharge=clamp(attackCharge,0,minAttackCharge2);
+	dir=point_direction(x,y,x+hspd,y);
 	
+	PlayerDetectMovement();
+	
+	if(!InputsFunctions.HoldAttack()){
+		PlayerChooseAttack();
+	}
+}
+
+function PlayerStateBasicAttack(){
+	PlayerDetectMovement();
+	
+	PlayerAttackEnd();
+}
+
+function PlayerStateChargedAttack1(){
+	PlayerDetectMovement();
+	
+	PlayerAttackEnd();
+}
+
+function PlayerStateChargedAttack2(){
+	PlayerDetectMovement();
+	
+	PlayerAttackEnd();
 }
 
 #endregion
