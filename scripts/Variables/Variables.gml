@@ -1,7 +1,7 @@
 #region MACROS
 
 #macro GRAVITY .24
-#macro FRAME game_get_speed(gamespeed_fps)
+#macro SEGUNDO game_get_speed(gamespeed_fps)
 
 #endregion
 
@@ -29,7 +29,7 @@ InputsFunctions={
 	PressJump:			function(){return keyboard_check_pressed(Inputs.jump)},
 	PressDash:			function(){return keyboard_check_pressed(Inputs.dash)},
 	PressAttack:		function(){return mouse_check_button_pressed(Inputs.attack)},
-	ReleasedShield:		function(){return mouse_check_button_pressed(Inputs.shield)},
+	PressShield:		function(){return mouse_check_button_pressed(Inputs.shield)},
 	ReleasedRight:		function(){return keyboard_check_released(Inputs.right)},
 	ReleasedLeft:		function(){return keyboard_check_released(Inputs.left)},
 	ReleasedJump:		function(){return keyboard_check_released(Inputs.jump)},

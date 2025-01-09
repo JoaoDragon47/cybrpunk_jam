@@ -4,6 +4,7 @@ function PlayerStateIdle(){
 	PlayerDetectDashKey();
 	PlayerDetectJumpKey();
 	PlayerDetectAttack();
+	PlayerDetectShieldCharge();
 }
 
 function PlayerStateWalk(){
@@ -12,6 +13,7 @@ function PlayerStateWalk(){
 	PlayerDetectDashKey();
 	PlayerDetectJumpKey();
 	PlayerDetectAttack();
+	PlayerDetectShieldCharge();
 }
 
 #region AÇÕES PADRÕES
@@ -31,7 +33,7 @@ function PlayerStateFall(){
 }
 
 function PlayerStateDash(){
-	coyoteTimer=coyoteFrames;
+	coyoteTimer=coyoteSEGUNDOs;
 	dashTimerDuration--;
 	hspd=lengthdir_x(dashSpd,dir);
 	vspd=0;
@@ -55,7 +57,7 @@ function PlayerStateDash(){
 function PlayerStateChargeAttack(){
 	attackCharge++;
 	attackCharge=clamp(attackCharge,0,minAttackCharge2);
-	dir=point_direction(x,y,x+hspd,y);
+	if(hspd!=0) dir=point_direction(x,y,x+hspd,y);
 	
 	PlayerDetectMovement();
 	
@@ -65,21 +67,33 @@ function PlayerStateChargeAttack(){
 }
 
 function PlayerStateBasicAttack(){
-	PlayerDetectMovement();
+	//PlayerDetectMovement();
 	
 	PlayerAttackEnd();
 }
 
 function PlayerStateChargedAttack1(){
-	PlayerDetectMovement();
+	//PlayerDetectMovement();
 	
 	PlayerAttackEnd();
 }
 
 function PlayerStateChargedAttack2(){
-	PlayerDetectMovement();
+	//PlayerDetectMovement();
 	
 	PlayerAttackEnd();
+}
+
+function PlayerStateChargeShield(){
+	if(InputsFunctions.HoldShield()){
+		shieldCharge++;
+	}else{
+		if(shieldCharge>=minShieldCharge){
+			shield.state="throw";
+		}
+		shieldCharge=0;
+		state=PlayerStateIdle;
+	}
 }
 
 #endregion
