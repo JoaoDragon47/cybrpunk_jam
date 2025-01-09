@@ -39,4 +39,6 @@ function setPlayerStats(_hp=100,_damage=10,_walk=3,_jump=2.5){
 		walkSpd=_walk;
 		jumpSpd=_jump;
 	}
+	
+	return $"Status novos: \n Vida: {_hp} \n Dano: {_damage} \n Speed: {_walk} \n Pulo: {_jump}"
 }
