@@ -23,3 +23,20 @@ function EndAnimation() {
 		if(argument_count > 2) _spd = argument[2];
 		return _image + _spd >= sprite_get_number(_sprite);
 }
+
+function setCooldown(_cool=.2){
+	with(objPlayer){
+		dashCooldown=FRAME*_cool;
+	}
+	return $"Cooldown do dash ajustado para {_cool} segundos.";
+}
+
+function setPlayerStats(_hp=100,_damage=10,_walk=3,_jump=2.5){
+	with(objPlayer){
+		maxHealth=_hp;
+		actualHealth=maxHealth;
+		attackBaseDamage=_damage;
+		walkSpd=_walk;
+		jumpSpd=_jump;
+	}
+}

@@ -19,12 +19,14 @@ function PlayerStateWalk(){
 function PlayerStateJump(){
 	PlayerDetectMovement();
 	
+	PlayerDetectDashKey();
 	PlayerDetectJumpKey();
 }
 
 function PlayerStateFall(){
 	PlayerDetectMovement();
 	
+	PlayerDetectDashKey();
 	PlayerDetectJumpKey();
 }
 
@@ -32,6 +34,7 @@ function PlayerStateDash(){
 	coyoteTimer=coyoteFrames;
 	dashTimerDuration--;
 	hspd=lengthdir_x(dashSpd,dir);
+	vspd=0;
 	
 	instance_create_layer(x,y,layer,objTrail,{
 		sprite_index: other.sprite_index,

@@ -39,9 +39,15 @@ function PlayerDetectState(){
 					state=PlayerStateIdle;
 				}
 			}else{
+				if(hspd!=0){
+					dir=point_direction(x,y,x+hspd,y);
+				}
 				state=PlayerStateFall;
 			}
 		}else{
+			if(hspd!=0){
+				dir=point_direction(x,y,x+hspd,y);
+			}
 			state=PlayerStateJump;
 		}
 	}
@@ -74,13 +80,16 @@ function PlayerDetectJumpKey(){
 }
 
 function PlayerDetectDashKey(){
-	if(canDash and isOnFloor){
-		if(InputsFunctions.PressDash()){
-			dashTimer=dashCooldown;
-			dashTimerDuration=dashDuration;
-			canDash=false;
-			state=PlayerStateDash;
-		}
+	if(isOnFloor){
+		dashCount=0;
+	}
+	
+	if(InputsFunctions.PressDash() and dashCount<dashMax and dashTimer<=0){
+		dashCount++;
+		dashTimer=dashCooldown;
+		dashTimerDuration=dashDuration;
+		//canDash=false;
+		state=PlayerStateDash;
 	}
 }
 

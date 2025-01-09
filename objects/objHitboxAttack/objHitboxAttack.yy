@@ -10,8 +10,8 @@
   "name":"objHitboxAttack",
   "overriddenProperties":[],
   "parent":{
-    "name":"Entities",
-    "path":"folders/Objects/Entities.yy",
+    "name":"Hitbox",
+    "path":"folders/Objects/Entities/Hitbox.yy",
   },
   "parentObjectId":{
     "name":"objHitbox",

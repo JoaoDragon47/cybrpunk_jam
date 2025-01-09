@@ -1,30 +1,34 @@
 event_inherited();
 
-jumpSpd=3.5;
+jumpSpd=3.5;					//FORÇA DO PULO
 pressJumpKey=-1;
 holdJumpKey=-1;
 jumpHoldFrames=FRAME*.25;
 jumpTimer=0;
-coyoteFrames=FRAME*.18;
+coyoteFrames=FRAME*.18;			//COYOTE TIMER
 coyoteTimer=coyoteFrames;
 jumpMax=1;
 jumpCount=0;
 
-dashSpd=10;
+dashMax=1;
+dashCount=0;
+dashSpd=10;						//FORÇA DO DASH
 dashKey=-1;
-canDash=true;
-dashCooldown=FRAME*.2;
+dashCooldown=FRAME*0.2;			//TEMPO ENTRE UM DASH E OUTRO
+/*
+O TEMPO ESTÁ EM SEGUNDOS (O COOLDOWN DO DASH ACIMA É DE 0.2 SEGUNDOS)
+*/
 dashTimer=dashCooldown;
-dashDuration=FRAME*.1;
+dashDuration=FRAME*0.1;			//DURAÇÃO DO DASH
 dashTimerDuration=dashDuration;
 
 canAttack=true;
-attackBaseDamage=10;
+attackBaseDamage=10;			//DANO BASE DO ATAQUE
 attackDamage=attackBaseDamage;
 attackCharge=0;
-minAttackCharge1=FRAME*1;
-minAttackCharge2=FRAME*3;
-hitForceBase=2;
+minAttackCharge1=FRAME*1;		//TEMPO DE CARGA PARA O LVL 1 DO ATAQUE
+minAttackCharge2=FRAME*3;		//TEMPO DE CARGA PARA O LVL 2 DO ATAQUE
+hitForceBase=2;					//FORÇA DO IMPACTO (KNOCKBACK)
 hitForce=hitForceBase;
 
 shieldBaseDamage=10;
@@ -32,3 +36,6 @@ shieldDamage=shieldBaseDamage;
 
 isInAction=false;
 state=PlayerStateIdle;
+
+debug=true;
+if(debug) show_debug_overlay(true,true);
