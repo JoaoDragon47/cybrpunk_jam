@@ -1,7 +1,7 @@
 #region MACROS
 
 #macro GRAVITY .24
-#macro SEGUNDO game_get_speed(gamespeed_fps)
+#macro DELTA game_get_speed(gamespeed_fps)
 
 #endregion
 

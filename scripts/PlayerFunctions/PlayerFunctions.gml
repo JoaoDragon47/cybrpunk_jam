@@ -56,7 +56,7 @@ function PlayerDetectState(){
 function PlayerDetectJumpKey(){
 	if(isOnFloor){
 		jumpCount=0;
-		coyoteTimer=coyoteSEGUNDOs;
+		coyoteTimer=coyoteFrames;
 	}else{
 		if(coyoteTimer>0) {coyoteTimer--}
 		if(coyoteTimer<=0 and jumpCount==0){jumpCount=1}
@@ -64,8 +64,8 @@ function PlayerDetectJumpKey(){
 	
 	if(InputsFunctions.PressJump() and (jumpCount<jumpMax and (jumpCount==0 ? coyoteTimer>0 : true))){
 		jumpCount++;
-		coyoteTimer=coyoteSEGUNDOs;
-		jumpTimer=jumpHoldSEGUNDOs;
+		coyoteTimer=coyoteFrames;
+		jumpTimer=jumpHoldFrames;
 		
 		state=PlayerStateJump;
 	}
@@ -161,7 +161,7 @@ function PlayerAttackEnd(){
 		image_index=0;
 		isInAction=false;
 		
-		posAttackTimer=SEGUNDO*.5;
+		posAttackTimer=DELTA*.5;
 		
 		state=PlayerStateIdle;
 	}

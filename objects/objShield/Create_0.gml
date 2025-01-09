@@ -4,7 +4,7 @@ hspd=0;
 vspd=0;
 dir=-1;
 throwSpd=8;
-throwDuration=SEGUNDO*.5;
+throwDuration=DELTA*.5;
 
 maxLen=false;
 

@@ -33,7 +33,7 @@ function PlayerStateFall(){
 }
 
 function PlayerStateDash(){
-	coyoteTimer=coyoteSEGUNDOs;
+	coyoteTimer=coyoteFrames;
 	dashTimerDuration--;
 	hspd=lengthdir_x(dashSpd,dir);
 	vspd=0;

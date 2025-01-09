@@ -28,7 +28,7 @@ switch(state){
 			
 			if(point_distance(x,y,target.x,target.y)<=16){
 				maxLen=false;
-				throwDuration=SEGUNDO*.8;
+				throwDuration=DELTA*.8;
 				state="idle";
 			}
 		}
