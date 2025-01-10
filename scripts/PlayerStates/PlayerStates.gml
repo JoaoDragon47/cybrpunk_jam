@@ -16,6 +16,22 @@ function PlayerStateWalk(){
 	PlayerDetectShieldCharge();
 }
 
+function PlayerStateHitted(){
+	hitLen-=.05;
+	hspd=lengthdir_x(hitLen,hitDir);
+	
+	if(!isOnFloor){
+		vspd+=GRAVITY*density;
+	}
+	
+	DetectCollision();
+	
+	if(hitLen<=0){
+		hspd=0;
+		state=PlayerStateIdle;
+	}
+}
+
 #region AÇÕES PADRÕES
 
 function PlayerStateJump(){
@@ -103,6 +119,23 @@ function PlayerStateChargeShield(){
 		}
 		shieldCharge=0;
 		isInAction=false;
+		state=PlayerStateIdle;
+	}
+}
+
+function PlayerStateDefendShield(){
+	shield.defend=true;
+	spd=walkSpd/2;
+	PlayerDetectMovement();
+	
+	PlayerDetectDashKey();
+	PlayerDetectJumpKey();
+	
+	if(!InputsFunctions.HoldShield()){
+		spd=walkSpd;
+		isInAction=false;
+		shield.defend=false;
+		
 		state=PlayerStateIdle;
 	}
 }

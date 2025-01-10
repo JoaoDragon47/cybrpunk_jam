@@ -7,6 +7,7 @@ throwSpd=8;
 throwDurationCooldown=DELTA*.5;
 throwDurationTimer=throwDurationCooldown;
 damage=10;
+defend=false;
 
 maxLen=false;
 

@@ -12,6 +12,10 @@ if(attackCharge>0){
 if(shieldCharge>0){
 	draw_healthbar(x-12,bbox_top-14,x+12,bbox_top-6,(shieldCharge/(minShieldCharge+10))*100,c_dkgray,c_green,c_red,0,true,true);
 }
+if(shield.defend){
+	draw_align(fa_bottom,fa_center);
+	draw_text(x,bbox_top-24,"Defesa ON");
+}
 //draw_self();
 
 draw_reset();

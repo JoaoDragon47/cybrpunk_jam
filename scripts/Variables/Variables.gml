@@ -1,3 +1,5 @@
+randomize();
+
 #region MACROS
 
 #macro GRAVITY .24

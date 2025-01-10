@@ -120,6 +120,9 @@ function PlayerDetectShieldCharge(){
 		if(InputsFunctions.HoldShield()){
 			state=PlayerStateChargeShield;
 		}
+	}else if(InputsFunctions.HoldShield()){
+		isInAction=true;
+		state=PlayerStateDefendShield;
 	}
 }
 

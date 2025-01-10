@@ -1,5 +1,8 @@
 event_inherited();
 
+walkSpd=3;
+spd=walkSpd;
+
 jumpSpd=3.5;					//FORÇA DO PULO
 pressJumpKey=-1;
 holdJumpKey=-1;
@@ -28,8 +31,10 @@ attackDamage=attackBaseDamage;
 attackCharge=0;
 minAttackCharge1=DELTA*1;		//TEMPO DE CARGA PARA O LVL 1 DO ATAQUE
 minAttackCharge2=DELTA*3;		//TEMPO DE CARGA PARA O LVL 2 DO ATAQUE
-hitForceBase=2;					//FORÇA DO IMPACTO (KNOCKBACK AO INIMIGO)
+hitForceBase=1.5;					//FORÇA DO IMPACTO (KNOCKBACK AO INIMIGO)
 hitForce=hitForceBase;
+hitLen=0;
+hitDir=0;
 
 shieldBaseDamage=10;
 shieldDamage=shieldBaseDamage;
