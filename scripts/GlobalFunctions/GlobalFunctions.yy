@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"GlobalFunctions",
   "parent":{
-    "name":"Scripts",
-    "path":"folders/Scripts.yy",
+    "name":"Globals",
+    "path":"folders/Scripts/Globals.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

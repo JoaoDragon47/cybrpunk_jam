@@ -4,7 +4,8 @@ hspd=0;
 vspd=0;
 dir=-1;
 throwSpd=8;
-throwDuration=DELTA*.5;
+throwDurationCooldown=DELTA*.5;
+throwDurationTimer=throwDurationCooldown;
 damage=10;
 
 maxLen=false;
@@ -24,7 +25,7 @@ checkEnemy=function(){
 				
 				_enemy.target.actualHealth-=target.shieldBaseDamage;
 				
-				throwDuration=0;
+				throwDurationTimer=0;
 			}
 			i++;
 		}

@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"DrawFunctions",
+  "%Name":"Cheats",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"DrawFunctions",
+  "name":"Cheats",
   "parent":{
     "name":"Globals",
     "path":"folders/Scripts/Globals.yy",

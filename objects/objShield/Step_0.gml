@@ -11,13 +11,13 @@ switch(state){
 		break;
 	case "throw":
 		if(!maxLen){
-			throwDuration--;
+			throwDurationTimer--;
 			
 			checkEnemy();
 			
 			hspd=lengthdir_x(throwSpd,dir);
 			
-			if(throwDuration<=0){
+			if(throwDurationTimer<=0){
 				ds_list_clear(enemysHitted);
 				dir=-180;
 				maxLen=true;
@@ -32,7 +32,7 @@ switch(state){
 			if(point_distance(x,y,target.x,target.y)<=16){
 				ds_list_clear(enemysHitted);
 				maxLen=false;
-				throwDuration=DELTA*.8;
+				throwDurationTimer=throwDurationCooldown;
 				state="idle";
 			}
 		}

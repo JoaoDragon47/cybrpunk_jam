@@ -23,32 +23,3 @@ function EndAnimation() {
 		if(argument_count > 2) _spd = argument[2];
 		return _image + _spd >= sprite_get_number(_sprite);
 }
-
-function setCooldown(_cool=.2){
-	with(objPlayer){
-		dashCooldown=DELTA*_cool;
-	}
-	return $"Cooldown do dash ajustado para {_cool} segundos.";
-}
-
-function setPlayerStats(_hp=100,_damage=10,_walk=3,_jump=2.5){
-	with(objPlayer){
-		maxHealth=_hp;
-		actualHealth=maxHealth;
-		attackBaseDamage=_damage;
-		walkSpd=_walk;
-		jumpSpd=_jump;
-	}
-	
-	return $"Status novos: \n Vida: {_hp} \n Dano: {_damage} \n Speed: {_walk} \n Pulo: {_jump}"
-}
-
-function setAttackCharge(_charge1=1.5,_charge2=3,_charge3=1.5){
-	with(objPlayer){
-		minAttackCharge1=_charge1*DELTA;
-		minAttackCharge2=_charge2*DELTA;
-		minShieldCharge=_charge3*DELTA;
-	}
-	
-	return $"O tempo de carga para os seguintes ataque: \n ATAQUE LVL 1 - {_charge1} segundos. \n ATAQUE LVL 2 - {_charge2} segundos. \n ESCUDO LVL 1 - {_charge3}"
-}
