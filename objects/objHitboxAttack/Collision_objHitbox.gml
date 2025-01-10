@@ -5,8 +5,9 @@ if(_inst.object_index==objEnemy){
 		ds_list_add(enemysHitted,_inst);
 		
 		with(_inst){
-			hitLen=_player.hitForce;
-			hitDir=point_direction(_player.x,_player.y,x,y+1);
+			hitLen=0;
+			//hitLen=_player.hitForce;
+			//hitDir=point_direction(_player.x,_player.y,x,y+1);
 			
 			actualHealth-=_player.damage;
 			state=EnemyStateHitted;

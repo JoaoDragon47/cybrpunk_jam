@@ -16,6 +16,7 @@ switch(state){
 			hspd=lengthdir_x(throwSpd,dir);
 			
 			if(throwDuration<=0){
+				ds_list_clear(enemysHitted);
 				dir=-180;
 				maxLen=true;
 			}
@@ -27,11 +28,14 @@ switch(state){
 			y+=vspd;
 			
 			if(point_distance(x,y,target.x,target.y)<=16){
+				ds_list_clear(enemysHitted);
 				maxLen=false;
 				throwDuration=DELTA*.8;
 				state="idle";
 			}
 		}
+		
+		checkEnemy();
 		
 		x+=hspd;
 		break;

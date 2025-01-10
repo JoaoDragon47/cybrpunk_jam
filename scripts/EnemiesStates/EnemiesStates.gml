@@ -26,6 +26,7 @@ function EnemyStateHitted(){
 	DetectCollision();
 	
 	if(hitLen<=0){
+		hspd=0;
 		state=EnemyStateIdle;
 	}
 }
