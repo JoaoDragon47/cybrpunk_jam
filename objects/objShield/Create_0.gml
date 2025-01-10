@@ -23,6 +23,8 @@ checkEnemy=function(){
 				ds_list_add(enemysHitted,_enemy);
 				
 				_enemy.target.actualHealth-=target.shieldBaseDamage;
+				
+				throwDuration=0;
 			}
 			i++;
 		}

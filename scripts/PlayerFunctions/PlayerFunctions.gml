@@ -50,6 +50,10 @@ function PlayerDetectState(){
 			}
 			state=PlayerStateJump;
 		}
+	}else{
+		if(hspd!=0){
+			dir=point_direction(x,y,x+hspd,y);
+		}
 	}
 }
 
@@ -66,6 +70,9 @@ function PlayerDetectJumpKey(){
 		jumpCount++;
 		coyoteTimer=coyoteFrames;
 		jumpTimer=jumpHoldFrames;
+		isInAction=false;
+		attackCharge=0;
+		shieldCharge=0;
 		
 		state=PlayerStateJump;
 	}
@@ -88,12 +95,15 @@ function PlayerDetectDashKey(){
 		dashCount++;
 		dashTimer=dashCooldown;
 		dashTimerDuration=dashDuration;
-		//canDash=false;
+		isInAction=false;
+		attackCharge=0;
+		shieldCharge=0;
+		
 		state=PlayerStateDash;
 	}
 }
 
-function PlayerDetectAttack(){
+function PlayerDetectAttackCharge(){
 	if(isOnFloor){
 		if(InputsFunctions.PressAttack()){
 			attackCharge=0;

@@ -3,7 +3,7 @@ function PlayerStateIdle(){
 	
 	PlayerDetectDashKey();
 	PlayerDetectJumpKey();
-	PlayerDetectAttack();
+	PlayerDetectAttackCharge();
 	PlayerDetectShieldCharge();
 }
 
@@ -12,7 +12,7 @@ function PlayerStateWalk(){
 	
 	PlayerDetectDashKey();
 	PlayerDetectJumpKey();
-	PlayerDetectAttack();
+	PlayerDetectAttackCharge();
 	PlayerDetectShieldCharge();
 }
 
@@ -55,11 +55,15 @@ function PlayerStateDash(){
 #region ATAQUES
 
 function PlayerStateChargeAttack(){
+	isInAction=true;
 	attackCharge++;
 	attackCharge=clamp(attackCharge,0,minAttackCharge2);
 	if(hspd!=0) dir=point_direction(x,y,x+hspd,y);
 	
 	PlayerDetectMovement();
+	
+	PlayerDetectDashKey();
+	PlayerDetectJumpKey();
 	
 	if(!InputsFunctions.HoldAttack()){
 		PlayerChooseAttack();
@@ -67,31 +71,38 @@ function PlayerStateChargeAttack(){
 }
 
 function PlayerStateBasicAttack(){
-	//PlayerDetectMovement();
+	PlayerDetectMovement();
 	
 	PlayerAttackEnd();
 }
 
 function PlayerStateChargedAttack1(){
-	//PlayerDetectMovement();
+	PlayerDetectMovement();
 	
 	PlayerAttackEnd();
 }
 
 function PlayerStateChargedAttack2(){
-	//PlayerDetectMovement();
+	PlayerDetectMovement();
 	
 	PlayerAttackEnd();
 }
 
 function PlayerStateChargeShield(){
+	PlayerDetectMovement();
+	
+	PlayerDetectDashKey();
+	PlayerDetectJumpKey();
+	
 	if(InputsFunctions.HoldShield()){
 		shieldCharge++;
+		isInAction=true;
 	}else{
 		if(shieldCharge>=minShieldCharge){
 			shield.state="throw";
 		}
 		shieldCharge=0;
+		isInAction=false;
 		state=PlayerStateIdle;
 	}
 }

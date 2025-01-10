@@ -12,5 +12,6 @@ if(attackCharge>0){
 if(shieldCharge>0){
 	draw_healthbar(x-12,bbox_top-14,x+12,bbox_top-6,(shieldCharge/(minShieldCharge+10))*100,c_dkgray,c_green,c_red,0,true,true);
 }
+//draw_self();
 
 draw_reset();

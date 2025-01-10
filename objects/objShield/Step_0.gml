@@ -13,6 +13,8 @@ switch(state){
 		if(!maxLen){
 			throwDuration--;
 			
+			checkEnemy();
+			
 			hspd=lengthdir_x(throwSpd,dir);
 			
 			if(throwDuration<=0){
@@ -34,8 +36,6 @@ switch(state){
 				state="idle";
 			}
 		}
-		
-		checkEnemy();
 		
 		x+=hspd;
 		break;
