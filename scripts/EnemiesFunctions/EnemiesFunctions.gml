@@ -53,3 +53,12 @@ function SniperDetectAim(){
 		state=SniperStateWalk;
 	}
 }
+
+function ChargerDetectPlayerOnSamePlatform(){
+	if(collision_line(x,bbox_bottom-((bbox_bottom-bbox_top)/2),objPlayer.x,bbox_bottom-((bbox_bottom-bbox_top)/2),objPlayer,false,true) and isOnFloor){
+		dir=point_direction(x,y,objPlayer.x,y);
+		hspd=0;
+		charge=chargeCooldown;
+		state=ChargerStateChargeDash;
+	}
+}

@@ -1,9 +1,3 @@
-if(defend){
-	show_debug_message("defesa em");
-}else{
-	show_debug_message("tem defesa não");
-}
-
 switch(state){
 	case "idle":
 		if(target!=noone){

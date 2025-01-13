@@ -192,6 +192,104 @@ function SniperStateHitted(){
 
 #endregion
 
+#region CHARGER
+
+function ChargerStateIdle(){
+	if(!isOnFloor){
+		vspd+=GRAVITY;
+	}
+	
+	DetectCollision();
+	
+	if(point_distance(x,y,objPlayer.x,objPlayer.y)<=viewRange){
+		state=ChargerStateRunToPlayer;
+	}
+}
+
+function ChargerStateRunToPlayer(){
+	if(!isOnFloor){
+		vspd+=GRAVITY;
+	}
+	
+	dir=point_direction(x,y,objPlayer.x,y);
+	hspd=lengthdir_x(spd,dir);
+	
+	DetectCollision();
+	
+	ChargerDetectPlayerOnSamePlatform();
+}
+
+function ChargerStateChargeDash(){
+	if(!isOnFloor){
+		vspd+=GRAVITY;
+	}
+	
+	DetectCollision();
+	charge--;
+	if(charge<=0){
+		chargeTimerDuration=chargeDuration;
+		state=ChargerStateDash;
+	}
+}
+
+function ChargerStateDash(){
+	if(!isOnFloor){
+		vspd+=GRAVITY;
+	}
+	
+	hspd=lengthdir_x(spdCharge,dir);
+	
+	DetectCollision();
+	
+	if(place_meeting(x,y,objPlayer) and !hittedPlayer){
+		if(objPlayer.shield.defend){
+			chargeTimerDuration=0;
+		}else{
+			objPlayer.actualHealth-=damage;
+			hittedPlayer=true;
+		}
+	}
+	
+	chargeTimerDuration--
+	if(chargeTimerDuration<=0 or hspd==0){
+		hspd=0;
+		restTimer=restCooldown;
+		hittedPlayer=false;
+		state=ChargerStateRest;
+	}
+}
+
+function ChargerStateRest(){
+	if(!isOnFloor){
+		vspd+=GRAVITY;
+	}
+	
+	DetectCollision();
+	restTimer--;
+	if(restTimer<=0){
+		state=ChargerStateIdle;
+	}
+}
+
+function ChargerStateHitted(){
+	hitLen-=.05;
+	hspd=lengthdir_x(hitLen,hitDir);
+	//vspd=lengthdir_y(hitLen,hitDir);
+	
+	if(!isOnFloor){
+		vspd+=GRAVITY*density;
+	}
+	
+	DetectCollision();
+	
+	if(hitLen<=0){
+		hspd=0;
+		state=ChargerStateIdle;
+	}
+}
+
+#endregion
+
 function EnemyStateChasePlayer(){
 	if(!isOnFloor){
 		vspd+=GRAVITY;

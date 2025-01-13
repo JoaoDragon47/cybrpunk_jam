@@ -9,8 +9,8 @@
   "name":"objEnemy",
   "overriddenProperties":[],
   "parent":{
-    "name":"Entities",
-    "path":"folders/Objects/Entities.yy",
+    "name":"Enemys",
+    "path":"folders/Objects/Entities/Enemys.yy",
   },
   "parentObjectId":{
     "name":"objEntitie",

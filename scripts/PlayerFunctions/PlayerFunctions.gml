@@ -74,6 +74,9 @@ function PlayerDetectJumpKey(){
 		attackCharge=0;
 		shieldCharge=0;
 		
+		spd=walkSpd;
+		shield.defend=false;
+		
 		state=PlayerStateJump;
 	}
 		
