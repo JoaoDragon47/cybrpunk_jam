@@ -34,6 +34,7 @@
   },
   "name":"Cybrpunk Jam",
   "resources":[
+    {"id":{"name":"objBat","path":"objects/objBat/objBat.yy",},},
     {"id":{"name":"objCeil","path":"objects/objCeil/objCeil.yy",},},
     {"id":{"name":"objCharger","path":"objects/objCharger/objCharger.yy",},},
     {"id":{"name":"objCollider","path":"objects/objCollider/objCollider.yy",},},

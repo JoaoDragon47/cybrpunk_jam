@@ -290,6 +290,68 @@ function ChargerStateHitted(){
 
 #endregion
 
+#region BAT
+
+function BatStateOnCeil(){
+	if(!isOnFloor){
+		vspd-=GRAVITY;
+	}
+	
+	DetectCollision();
+	BatDetectPlayer();
+}
+
+function BatStateDiveDown(){
+	if(!isOnFloor){
+		vspd-=GRAVITY;
+	}
+	
+	hspd=lengthdir_x(spdHorizontalDive,dir);
+	
+	DetectCollision();
+	
+	if(place_meeting(x,y,objPlayer) and !hittedPlayer){
+		hittedPlayer=true;
+		if(place_meeting(x,y,objShield) and objPlayer.shield.defend){
+			vspd=0;
+		}else{
+			objPlayer.actualHealth-=damage;
+		}
+	}
+	
+	if(place_meeting(x,bbox_bottom+1,objCollider) or vspd<0){
+		vspd=0;
+		state=BatStateDiveUp;
+	}
+}
+
+function BatStateDiveUp(){
+	if(!isOnFloor){
+		vspd-=GRAVITY;
+	}
+	
+	hspd=lengthdir_x(spdHorizontalDive,dir);
+	
+	DetectCollision();
+	
+	if(place_meeting(x,y,objPlayer) and !hittedPlayer){
+		hittedPlayer=true;
+		if(place_meeting(x,y,objShield) and objPlayer.shield.defend){
+			exit;
+		}else{
+			objPlayer.actualHealth-=damage;
+		}
+	}
+	
+	if(place_meeting(x,bbox_top-1,objCeil)){
+		hspd=0;
+		hittedPlayer=false;
+		state=BatStateOnCeil;
+	}
+}
+
+#endregion
+
 function EnemyStateChasePlayer(){
 	if(!isOnFloor){
 		vspd+=GRAVITY;

@@ -62,3 +62,14 @@ function ChargerDetectPlayerOnSamePlatform(){
 		state=ChargerStateChargeDash;
 	}
 }
+
+function BatDetectPlayer(){
+	var _distanceToPlayer=point_distance(x,bbox_bottom,objPlayer.x,bbox_bottom);
+	if(_distanceToPlayer<=attackRange){
+		if(_distanceToPlayer>safeRange){
+			dir=point_direction(x,y,objPlayer.x,y);
+			vspd=spdDive;
+			state=BatStateDiveDown;
+		}
+	}
+}
