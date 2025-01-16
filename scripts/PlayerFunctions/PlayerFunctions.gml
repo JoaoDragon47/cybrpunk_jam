@@ -1,15 +1,15 @@
 function DetectCollision(){
-	if(place_meeting(x+hspd,y,objCollider)){
-		while(!place_meeting(x+sign(hspd),y,objCollider)){
+	if(place_meeting(x+hspd,y,layer_tilemap_get_id("collision"))){
+		while(!place_meeting(x+sign(hspd),y,layer_tilemap_get_id("collision"))){
 			x+=sign(hspd);
 		}
 		hspd=0
 	}
 	x+=hspd;
 	
-	isOnFloor=place_meeting(x,y+1,objCollider);
-	if(place_meeting(x,y+vspd,objCollider)){
-		while(!place_meeting(x,y+sign(vspd),objCollider)){
+	isOnFloor=place_meeting(x,y+1,layer_tilemap_get_id("collision"));
+	if(place_meeting(x,y+vspd,layer_tilemap_get_id("collision"))){
+		while(!place_meeting(x,y+sign(vspd),layer_tilemap_get_id("collision"))){
 			y+=sign(vspd);
 		}
 		vspd=0

@@ -20,7 +20,7 @@ chargeTimerDuration=0;
 restCooldown=DELTA*1.5;
 restTimer=0;
 
-viewRange=view_get_wport(view_enabled[0]);
+viewRange=600;
 
 enemyIdle=		ChargerStateIdle;
 enemyWalk=		ChargerStateIdle;
