@@ -121,6 +121,7 @@ function PlayerStateChargeShield(){
 		shieldCharge++;
 		isInAction=true;
 	}else{
+		//sprite_index=sprPlayerThrowShield;
 		if(shieldCharge>=minShieldCharge){
 			shield.state="throw";
 		}

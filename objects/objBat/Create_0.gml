@@ -15,9 +15,9 @@ spdDive=16;
 attackRange=170;
 safeRange=50;
 
-enemyIdle=		BatStateOnCeil;
+enemyIdle=		BatStateDiveUp;
 enemyWalk=		BatStateOnCeil;
-enemyHitted=	ChargerStateHitted;
+enemyHitted=	BatStateDiveUp;
 
 stateTimer=1;
 state=enemyIdle;

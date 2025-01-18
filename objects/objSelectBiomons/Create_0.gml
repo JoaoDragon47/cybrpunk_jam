@@ -25,38 +25,38 @@ biomonSlots=ds_map_create();
 //biomonSlot3=false;
 
 dsGridBiomonHealth=createMenuPage(
-	["Vida=100",100,"vida",-1],
-	["Vida=100",100,"vida",-1]
+	["Vida=100",100,	"vida",-1],
+	["Vida=100",100,	"vida",-1]
 )
 
 dsGridBiomonSpeed=createMenuPage(
-	["Speed=3",3,"walkSpd",-1],
-	["Speed=10",10,"walkSpd",-1]
+	["Speed=3",3,		"walkSpd",-1],
+	["Speed=10",10,		"walkSpd",-1]
 )
 
 dsGridBiomonJump=createMenuPage(
-	["JumpSpeed=5",5,"jumpSpd",-1],
-	["JumpSpeed=8",8,"jumpSpd",-1]
+	["JumpSpeed=5",5,	"jumpSpd",-1],
+	["JumpSpeed=8",8,	"jumpSpd",-1]
 )
 
 dsGridBiomonSwordDamage=createMenuPage(
-	["SwD1",50,"swordDamage",-1],
-	["SwD2",100,"swordDamage",-1]
+	["SwD1",50,			"swordDamage",-1],
+	["SwD2",100,		"swordDamage",-1]
 )
 
 dsGridBiomonShieldDamageFront=createMenuPage(
-	["ShDF1",50,"shieldDamageFront",-1],
-	["ShDF2",100,"shieldDamageFront",-1]
+	["ShDF1",50,		"shieldDamageFront",-1],
+	["ShDF2",100,		"shieldDamageFront",-1]
 )
 
 dsGridBiomonShieldDamageBack=createMenuPage(
-	["ShDB1",20,"shieldDamageBack",-1],
-	["ShDB2",100,"shieldDamageBack",-1]
+	["ShDB1",20,		"shieldDamageBack",-1],
+	["ShDB2",100,		"shieldDamageBack",-1]
 )
 
 dsGridBiomonShieldDamageReduce=createMenuPage(
-	["ShDR1",100,"shieldReduceDamage",-1],
-	["ShDR2",100,"shieldReduceDamage",-1]
+	["ShDR1",100,		"shieldReduceDamage",-1],
+	["ShDR2",100,		"shieldReduceDamage",-1]
 )
 
 biomonsArray=[

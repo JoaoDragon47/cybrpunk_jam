@@ -1,22 +1,21 @@
 {
   "$GMObject":"",
-  "%Name":"objEnemy",
+  "%Name":"objSmasher",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":1,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":2,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"objEnemy",
+  "name":"objSmasher",
   "overriddenProperties":[],
   "parent":{
     "name":"Enemys",
     "path":"folders/Objects/Entities/Enemys.yy",
   },
   "parentObjectId":{
-    "name":"objEntitie",
-    "path":"objects/objEntitie/objEntitie.yy",
+    "name":"objEnemy",
+    "path":"objects/objEnemy/objEnemy.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,
@@ -36,8 +35,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprEnemie",
-    "path":"sprites/sprEnemie/sprEnemie.yy",
+    "name":"sprSmasheridle",
+    "path":"sprites/sprSmasheridle/sprSmasheridle.yy",
   },
   "spriteMaskId":null,
   "visible":true,
