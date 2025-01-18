@@ -77,7 +77,6 @@
     {"id":{"name":"sprCollider","path":"sprites/sprCollider/sprCollider.yy",},},
     {"id":{"name":"sprEnemie","path":"sprites/sprEnemie/sprEnemie.yy",},},
     {"id":{"name":"sprHitboxAttack","path":"sprites/sprHitboxAttack/sprHitboxAttack.yy",},},
-    {"id":{"name":"Sprite9","path":"sprites/Sprite9/Sprite9.yy",},},
     {"id":{"name":"spriteBat","path":"sprites/spriteBat/spriteBat.yy",},},
     {"id":{"name":"spriteCharger","path":"sprites/spriteCharger/spriteCharger.yy",},},
     {"id":{"name":"sprPlayer","path":"sprites/sprPlayer/sprPlayer.yy",},},
