@@ -3,7 +3,7 @@ event_inherited();
 walkSpd=3;
 spd=walkSpd;
 
-jumpSpd=3.5;					//FORÇA DO PULO
+jumpSpd=5;					//FORÇA DO PULO
 pressJumpKey=-1;
 holdJumpKey=-1;
 jumpHoldFrames=DELTA*.25;
