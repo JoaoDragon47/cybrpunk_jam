@@ -42,6 +42,7 @@
     {"id":{"name":"objCeil","path":"objects/objCeil/objCeil.yy",},},
     {"id":{"name":"objCharger","path":"objects/objCharger/objCharger.yy",},},
     {"id":{"name":"objCollider","path":"objects/objCollider/objCollider.yy",},},
+    {"id":{"name":"objDeathZone","path":"objects/objDeathZone/objDeathZone.yy",},},
     {"id":{"name":"objEnemy","path":"objects/objEnemy/objEnemy.yy",},},
     {"id":{"name":"objEntitie","path":"objects/objEntitie/objEntitie.yy",},},
     {"id":{"name":"objFadeTransitionRoom","path":"objects/objFadeTransitionRoom/objFadeTransitionRoom.yy",},},

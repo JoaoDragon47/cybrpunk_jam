@@ -1,0 +1,1 @@
+if(bbox_top>=room_height*1.5 or bbox_bottom<=-room_height*1.5) instance_destroy();

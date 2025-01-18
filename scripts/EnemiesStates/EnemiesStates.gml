@@ -326,9 +326,7 @@ function BatStateDiveDown(){
 }
 
 function BatStateDiveUp(){
-	if(!isOnFloor){
-		vspd-=GRAVITY;
-	}
+	vspd-=GRAVITY;
 	
 	hspd=lengthdir_x(spdHorizontalDive,dir);
 	
@@ -343,7 +341,7 @@ function BatStateDiveUp(){
 		}
 	}
 	
-	if(place_meeting(x,bbox_top-1,objCeil)){
+	if(place_meeting(x,bbox_top-1,layer_tilemap_get_id("collision"))){
 		hspd=0;
 		hittedPlayer=false;
 		state=BatStateOnCeil;
@@ -524,7 +522,7 @@ function EnemyStateHitted(){
 	
 	if(hitLen<=0){
 		hspd=0;
-		state=EnemyStateIdle;
+		state=enemyIdle;
 	}
 }
 
