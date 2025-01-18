@@ -25,6 +25,7 @@ viewRange=600;
 enemyIdle=		ChargerStateIdle;
 enemyWalk=		ChargerStateIdle;
 enemyHitted=	ChargerStateHitted;
+dashState=		ChargerStateDash;
 
 stateTimer=1;
 state=enemyIdle;

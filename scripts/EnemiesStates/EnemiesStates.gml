@@ -228,7 +228,7 @@ function ChargerStateChargeDash(){
 	charge--;
 	if(charge<=0){
 		chargeTimerDuration=chargeDuration;
-		state=ChargerStateDash;
+		state=dashState;
 	}
 }
 
@@ -347,6 +347,148 @@ function BatStateDiveUp(){
 		hspd=0;
 		hittedPlayer=false;
 		state=BatStateOnCeil;
+	}
+}
+
+#endregion
+
+#region BOSS
+
+function SmasherStateTaunt(){
+	hspd=0;
+	if(!isOnFloor){
+		vspd+=GRAVITY;
+	}
+	
+	DetectCollision();
+	
+	dir=point_direction(x,y,objPlayer.x,y);
+	image_xscale=lengthdir_x(1,dir);
+	
+	hittedPlayer=false;
+	tauntTimer--;
+	if(tauntTimer<=0){
+		tauntTimer=tauntDuration;
+		switch(attackCount){
+			default:
+				charge=chargeDuration;
+				state=SmasherStateChargeDash;
+				break;
+			case 1:
+				spd=punchSpd;
+				state=SmasherStateConsecutivePunchs;
+				break;
+			case 2:
+				//ATAQUE DE PULO EM PARÁBOLA
+				xDest=objPlayer.x;
+				vspd=		-jumpSpd;
+				//spd=		inAirSpd;
+				
+				state=SmasherStateJumpTowardsPlayer;
+				break;
+		}
+		
+		attackCount++;
+		if(attackCount>=attacks) attackCount=0;
+	}
+}
+
+function SmasherStateChargeDash(){
+	if(!isOnFloor){
+		vspd+=GRAVITY;
+	}
+	
+	DetectCollision();
+	
+	charge--;
+	if(charge<=0){
+		dashWithPunchTimer=dashWithPunchDuration;
+		state=SmasherStateDashWithPunch;
+	}
+}
+
+function SmasherStateDashWithPunch(){
+	hspd=lengthdir_x(dashSpd,dir);
+	if(!isOnFloor){
+		vspd+=GRAVITY;
+	}
+	
+	DetectCollision();
+	
+	if(place_meeting(x,y,objPlayer) and !hittedPlayer){
+		hittedPlayer=true;
+		if(place_meeting(x,y,objShield) and objPlayer.shield.defend){
+			exit;
+		}else{
+			objPlayer.actualHealth-=damage;
+		}
+	}
+	
+	dashWithPunchTimer--;
+	if(dashWithPunchTimer<=0 or hspd=0){
+		state=SmasherStateTaunt;
+	}
+}
+
+function SmasherStateConsecutivePunchs(){
+	if(spd>0) spd-=.5;
+	hspd=lengthdir_x(spd,dir);
+	if(!isOnFloor){
+		vspd+=GRAVITY;
+	}
+	
+	DetectCollision();
+	
+	if(place_meeting(x,y,objPlayer) and !hittedPlayer){
+		hittedPlayer=true;
+		if(place_meeting(x,y,objShield) and objPlayer.shield.defend){
+			exit;
+		}else{
+			objPlayer.actualHealth-=damage;
+		}
+	}
+	
+	if(spd<=0){
+		punchs++;
+		hittedPlayer=false;
+		if(punchs<punchsMax){
+			dir=point_direction(x,y,objPlayer.x,y);
+			image_xscale=lengthdir_x(1,dir);
+			spd=punchSpd;
+		}else{
+			punchs=0;
+			state=SmasherStateTaunt;
+		}
+	}
+}
+
+function SmasherStateJumpTowardsPlayer(){
+	//DIRECIONAR O EIXO HORIZONTAL PARA O DESTINO
+	x=lerp(x,xDest,.035);
+	
+	if(point_distance(x,y,xDest,y)<=jumpSpd) vspd+=stopSpd;
+	
+	//APLICAR GRAVIDADE
+	if(!isOnFloor){
+		vspd+=GRAVITY;
+	}
+	
+	//CHECAR COLISÃO
+	DetectCollision();
+	
+	
+	//APLICAR DANO AO JOGADOR
+	if(place_meeting(x,y,objPlayer) and !hittedPlayer){
+		hittedPlayer=true;
+		if(place_meeting(x,y,objShield) and objPlayer.shield.defend){
+			exit;
+		}else{
+			objPlayer.actualHealth-=damage;
+		}
+	}
+	
+	if(place_meeting(x,y+1,layer_tilemap_get_id("collision"))){
+		state=SmasherStateTaunt;
 	}
 }
 

@@ -14,7 +14,7 @@ if(object_get_parent(_inst.object_index)==objEnemy){
 				if(state!=ChargerStateDash){
 					state=enemyHitted;
 				}
-			}else{
+			}else if(object_index!=objSmasher){
 				state=enemyHitted;
 			}
 		}
