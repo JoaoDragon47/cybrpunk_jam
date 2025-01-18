@@ -57,6 +57,7 @@
     {"id":{"name":"rmMenu","path":"rooms/rmMenu/rmMenu.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"stage1","path":"rooms/stage1/stage1.yy",},},
+    {"id":{"name":"stage2","path":"rooms/stage2/stage2.yy",},},
     {"id":{"name":"Cheats","path":"scripts/Cheats/Cheats.yy",},},
     {"id":{"name":"DrawFunctions","path":"scripts/DrawFunctions/DrawFunctions.yy",},},
     {"id":{"name":"EnemiesFunctions","path":"scripts/EnemiesFunctions/EnemiesFunctions.yy",},},
@@ -80,6 +81,7 @@
     {"id":{"name":"sprPlayerShieldOn","path":"sprites/sprPlayerShieldOn/sprPlayerShieldOn.yy",},},
     {"id":{"name":"sprPlayerWalk","path":"sprites/sprPlayerWalk/sprPlayerWalk.yy",},},
     {"id":{"name":"sprShield","path":"sprites/sprShield/sprShield.yy",},},
+    {"id":{"name":"stage_tracing","path":"sprites/stage_tracing/stage_tracing.yy",},},
     {"id":{"name":"TileSet2","path":"tilesets/TileSet2/TileSet2.yy",},},
   ],
   "resourceType":"GMProject",
@@ -88,6 +90,7 @@
     {"roomId":{"name":"rmMenu","path":"rooms/rmMenu/rmMenu.yy",},},
     {"roomId":{"name":"stage1","path":"rooms/stage1/stage1.yy",},},
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"roomId":{"name":"stage2","path":"rooms/stage2/stage2.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
