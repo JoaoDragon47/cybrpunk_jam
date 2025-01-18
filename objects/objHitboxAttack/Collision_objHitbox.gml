@@ -10,13 +10,13 @@ if(object_get_parent(_inst.object_index)==objEnemy){
 			hitDir=point_direction(_player.x,_player.y,x,y+1);
 			
 			actualHealth-=_player.damage;
-			if(object_index==objCharger){
-				if(state!=ChargerStateDash){
-					state=enemyHitted;
-				}
-			}else if(object_index!=objSmasher){
-				state=enemyHitted;
-			}
+			//if(object_index==objCharger){
+			//	if(state!=ChargerStateDash){
+			//		state=enemyHitted;
+			//	}
+			//}else if(object_index!=objSmasher){
+			//	state=enemyHitted;
+			//}
 		}
 	}
 }
