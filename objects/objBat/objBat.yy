@@ -35,8 +35,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprEnemie",
-    "path":"sprites/sprEnemie/sprEnemie.yy",
+    "name":"spriteBat",
+    "path":"sprites/spriteBat/spriteBat.yy",
   },
   "spriteMaskId":null,
   "visible":true,
