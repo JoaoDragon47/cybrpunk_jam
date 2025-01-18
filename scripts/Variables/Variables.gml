@@ -44,6 +44,6 @@ globalvar hudScale;
 hudScale=1;
 
 globalvar stopPlayer;
-stopPlayer=true;
+stopPlayer=false;
 
 #endregion
