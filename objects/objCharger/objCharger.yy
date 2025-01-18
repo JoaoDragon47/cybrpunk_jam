@@ -35,8 +35,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprEnemie",
-    "path":"sprites/sprEnemie/sprEnemie.yy",
+    "name":"spriteCharger",
+    "path":"sprites/spriteCharger/spriteCharger.yy",
   },
   "spriteMaskId":null,
   "visible":true,
