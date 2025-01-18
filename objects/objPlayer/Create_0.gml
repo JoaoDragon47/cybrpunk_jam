@@ -1,6 +1,9 @@
 event_inherited();
 
-walkSpd=3;
+maxHealth=100;
+actualHealth=maxHealth;
+
+walkSpd=4;
 spd=walkSpd;
 
 jumpSpd=5;					//FORÇA DO PULO
@@ -36,8 +39,9 @@ hitForce=hitForceBase;
 hitLen=0;
 hitDir=0;
 
-shieldBaseDamage=10;
-shieldDamage=shieldBaseDamage;
+shieldBaseDamageFront=10;
+shieldBaseDamageBack=10;
+shieldDamage=shieldBaseDamageFront;
 posAttackTimer=0;
 minShieldCharge=DELTA*1;		//TEMPO DE CARGA PARA ARREMESSAR O ESCUDO
 shieldCharge=0;

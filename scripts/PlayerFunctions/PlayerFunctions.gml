@@ -26,6 +26,8 @@ function PlayerDetectMovement(){
 	PlayerDetectState();
 	
 	DetectCollision();
+	
+	image_xscale=lengthdir_x(1,dir);
 }
 
 function PlayerDetectState(){
@@ -102,6 +104,7 @@ function PlayerDetectDashKey(){
 		attackCharge=0;
 		shieldCharge=0;
 		
+		sprite_index=sprPlayerDash;
 		state=PlayerStateDash;
 	}
 }

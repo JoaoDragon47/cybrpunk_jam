@@ -16,6 +16,5 @@ if(shield.defend){
 	draw_align(fa_bottom,fa_center);
 	draw_text(x,bbox_top-24,"Defesa ON");
 }
-//draw_self();
 
 draw_reset();

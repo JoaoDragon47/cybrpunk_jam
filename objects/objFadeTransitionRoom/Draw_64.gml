@@ -1,0 +1,1 @@
+draw_sprite_stretched_ext(Pixel,0,0,0,display_get_gui_width(),display_get_gui_height(),c_black,alpha)

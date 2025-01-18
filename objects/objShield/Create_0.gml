@@ -24,7 +24,11 @@ checkEnemy=function(){
 			if(ds_list_find_index(enemysHitted,_enemy)==-1){
 				ds_list_add(enemysHitted,_enemy);
 				
-				_enemy.target.actualHealth-=target.shieldBaseDamage;
+				if(maxLen){
+					_enemy.target.actualHealth-=target.shieldBaseDamageBack;
+				}else{
+					_enemy.target.actualHealth-=target.shieldBaseDamageFront;
+				}
 				
 				throwDurationTimer=0;
 			}

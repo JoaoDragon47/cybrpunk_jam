@@ -37,5 +37,5 @@
     "path":"sprites/sprShield/sprShield.yy",
   },
   "spriteMaskId":null,
-  "visible":true,
+  "visible":false,
 }

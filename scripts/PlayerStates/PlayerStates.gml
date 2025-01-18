@@ -1,4 +1,5 @@
 function PlayerStateIdle(){
+	sprite_index=sprPlayerIdle;
 	PlayerDetectMovement();
 	
 	PlayerDetectDashKey();
@@ -8,6 +9,7 @@ function PlayerStateIdle(){
 }
 
 function PlayerStateWalk(){
+	sprite_index=sprPlayerWalk;
 	PlayerDetectMovement();
 	
 	PlayerDetectDashKey();
@@ -35,6 +37,7 @@ function PlayerStateHitted(){
 #region AÇÕES PADRÕES
 
 function PlayerStateJump(){
+	sprite_index=sprPlayerJump;
 	PlayerDetectMovement();
 	
 	PlayerDetectDashKey();
@@ -42,6 +45,7 @@ function PlayerStateJump(){
 }
 
 function PlayerStateFall(){
+	sprite_index=sprPlayerJump;
 	PlayerDetectMovement();
 	
 	PlayerDetectDashKey();
@@ -49,6 +53,7 @@ function PlayerStateFall(){
 }
 
 function PlayerStateDash(){
+	sprite_index=sprPlayerDash;
 	coyoteTimer=coyoteFrames;
 	dashTimerDuration--;
 	hspd=lengthdir_x(dashSpd,dir);
@@ -56,7 +61,9 @@ function PlayerStateDash(){
 	
 	instance_create_layer(x,y,layer,objTrail,{
 		sprite_index: other.sprite_index,
-		image_index: other.image_index
+		image_index: other.image_index,
+		image_xscale: other.image_xscale,
+		image_yscale: other.image_yscale
 	})
 	
 	DetectCollision();
@@ -124,6 +131,7 @@ function PlayerStateChargeShield(){
 }
 
 function PlayerStateDefendShield(){
+	sprite_index=sprPlayerShieldOn;
 	shield.defend=true;
 	spd=walkSpd/2;
 	PlayerDetectMovement();

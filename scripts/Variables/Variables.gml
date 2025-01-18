@@ -40,4 +40,10 @@ InputsFunctions={
 	ReleasedShield:		function(){return mouse_check_button_released(Inputs.shield)}
 }
 
+globalvar hudScale;
+hudScale=1;
+
+globalvar stopPlayer;
+stopPlayer=true;
+
 #endregion
