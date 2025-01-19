@@ -60,6 +60,7 @@
     {"id":{"name":"objSniperBullet","path":"objects/objSniperBullet/objSniperBullet.yy",},},
     {"id":{"name":"objTrail","path":"objects/objTrail/objTrail.yy",},},
     {"id":{"name":"objTransition","path":"objects/objTransition/objTransition.yy",},},
+    {"id":{"name":"bossStage","path":"rooms/bossStage/bossStage.yy",},},
     {"id":{"name":"rmMenu","path":"rooms/rmMenu/rmMenu.yy",},},
     {"id":{"name":"rmStageCompleted","path":"rooms/rmStageCompleted/rmStageCompleted.yy",},},
     {"id":{"name":"stage1","path":"rooms/stage1/stage1.yy",},},
@@ -82,6 +83,7 @@
     {"id":{"name":"sprCollider","path":"sprites/sprCollider/sprCollider.yy",},},
     {"id":{"name":"sprEnemie","path":"sprites/sprEnemie/sprEnemie.yy",},},
     {"id":{"name":"sprHitboxAttack","path":"sprites/sprHitboxAttack/sprHitboxAttack.yy",},},
+    {"id":{"name":"Sprite22","path":"sprites/Sprite22/Sprite22.yy",},},
     {"id":{"name":"spriteBat","path":"sprites/spriteBat/spriteBat.yy",},},
     {"id":{"name":"spriteCharger","path":"sprites/spriteCharger/spriteCharger.yy",},},
     {"id":{"name":"sprPlayer","path":"sprites/sprPlayer/sprPlayer.yy",},},
@@ -105,6 +107,7 @@
     {"roomId":{"name":"stage1","path":"rooms/stage1/stage1.yy",},},
     {"roomId":{"name":"stage2","path":"rooms/stage2/stage2.yy",},},
     {"roomId":{"name":"rmStageCompleted","path":"rooms/rmStageCompleted/rmStageCompleted.yy",},},
+    {"roomId":{"name":"bossStage","path":"rooms/bossStage/bossStage.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
