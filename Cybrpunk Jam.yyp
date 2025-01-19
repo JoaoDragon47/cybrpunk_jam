@@ -69,6 +69,8 @@
     {"id":{"name":"PlayerFunctions","path":"scripts/PlayerFunctions/PlayerFunctions.yy",},},
     {"id":{"name":"PlayerStates","path":"scripts/PlayerStates/PlayerStates.yy",},},
     {"id":{"name":"Variables","path":"scripts/Variables/Variables.yy",},},
+    {"id":{"name":"sndBossStage","path":"sounds/sndBossStage/sndBossStage.yy",},},
+    {"id":{"name":"sndStageMusic","path":"sounds/sndStageMusic/sndStageMusic.yy",},},
     {"id":{"name":"background_stages","path":"sprites/background_stages/background_stages.yy",},},
     {"id":{"name":"cyberpunk_tile_pallet","path":"sprites/cyberpunk_tile_pallet/cyberpunk_tile_pallet.yy",},},
     {"id":{"name":"Pixel","path":"sprites/Pixel/Pixel.yy",},},

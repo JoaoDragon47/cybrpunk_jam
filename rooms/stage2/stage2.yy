@@ -1,7 +1,7 @@
 {
   "$GMRoom":"v1",
   "%Name":"stage2",
-  "creationCodeFile":"",
+  "creationCodeFile":"rooms/stage2/RoomCreationCode.gml",
   "inheritCode":false,
   "inheritCreationOrder":false,
   "inheritLayers":false,
@@ -31,6 +31,7 @@
     {"name":"inst_7832F35E","path":"rooms/stage2/stage2.yy",},
     {"name":"inst_72E99F94","path":"rooms/stage2/stage2.yy",},
     {"name":"inst_66A9F0E","path":"rooms/stage2/stage2.yy",},
+    {"name":"inst_2A42A4C3","path":"rooms/stage2/stage2.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -62,7 +63,9 @@
         {"$GMRInstance":"v1","%Name":"inst_53B8490","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_53B8490","objectId":{"name":"objCharger","path":"objects/objCharger/objCharger.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":2048.0,"y":832.0,},
       ],"layers":[],"name":"entities","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"attacks","depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[],"layers":[],"name":"attacks","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
-    {"$GMRInstanceLayer":"","%Name":"hitbox","depth":200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[],"layers":[],"name":"hitbox","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
+    {"$GMRInstanceLayer":"","%Name":"hitbox","depth":200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
+        {"$GMRInstance":"v1","%Name":"inst_2A42A4C3","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_2A42A4C3","objectId":{"name":"objDeathZone","path":"objects/objDeathZone/objDeathZone.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":188.0,"scaleY":19.0,"x":-416.0,"y":2720.0,},
+      ],"layers":[],"name":"hitbox","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRTileLayer":"","%Name":"Tiles_1","depth":300,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Tiles_1","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":64,"SerialiseWidth":161,"TileCompressedData":[
           -689,-2147483648,1,0,-160,-2147483648,1,0,-115,-2147483648,1,29,-44,-2147483648,3,0,25,29,-113,-2147483648,
           1,29,-45,-2147483648,2,25,29,-113,-2147483648,1,29,-21,-2147483648,-2,52,-22,-2147483648,2,25,29,-113,

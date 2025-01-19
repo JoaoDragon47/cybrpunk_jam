@@ -1,0 +1,1 @@
+if(!audio_is_playing(sndStageMusic)) audio_play_sound(sndStageMusic,1,true,.3);
