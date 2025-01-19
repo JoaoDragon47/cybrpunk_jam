@@ -12,6 +12,9 @@ hittedPlayer=false;
 attackCount=0;
 attacks=3;
 
+maxHealth=300;
+actualHealth=maxHealth;
+
 hspd=0;
 vspd=0;
 

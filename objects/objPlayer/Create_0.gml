@@ -18,9 +18,9 @@ jumpCount=0;
 
 dashMax=1;
 dashCount=0;
-dashSpd=20;						//FORÇA DO DASH
+dashSpd=7;						//FORÇA DO DASH
 dashKey=-1;
-dashCooldown=DELTA*0.5;			//TEMPO ENTRE UM DASH E OUTRO
+dashCooldown=DELTA*0.8;			//TEMPO ENTRE UM DASH E OUTRO
 /*
 O TEMPO ESTÁ EM SEGUNDOS (O COOLDOWN DO DASH ACIMA É DE 0.2 SEGUNDOS)
 */

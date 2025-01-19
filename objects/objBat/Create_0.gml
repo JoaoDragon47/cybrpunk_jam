@@ -15,7 +15,7 @@ actualHealth=maxHealth;
 
 
 spdHorizontalDive=4;
-spdDive=16;
+spdDive=3;
 attackRange=170;
 safeRange=50;
 
