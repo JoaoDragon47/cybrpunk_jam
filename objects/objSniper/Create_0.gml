@@ -9,6 +9,9 @@ attackBaseDamage=10;
 damage=attackBaseDamage;
 attackTimer=DELTA*.5;
 
+maxHealth=10;
+actualHealth=maxHealth;
+
 hspd=0;
 xDest=x;
 yDest=y;

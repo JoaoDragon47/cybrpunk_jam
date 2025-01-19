@@ -1,4 +1,4 @@
-// Inherit the parent event
+ // Inherit the parent event
 event_inherited();
 
 hitForceBase=1.5;
@@ -6,14 +6,18 @@ hitForce=hitForceBase;
 hitLen=0;
 hitDir=0;
 attackBaseDamage=10;
-damage=attackBaseDamage;
-attackTimer=DELTA*.5;
+damage = attackBaseDamage;
+attackTimer=DELTA*1.5;
 hittedPlayer=false;
+
+
+maxHealth=10;
+actualHealth=maxHealth;
 
 spdCharge=6;
 hspd=0;
 vspd=0;
-chargeCooldown=DELTA*1;
+chargeCooldown=DELTA*0.3;
 charge=0;
 chargeDuration=DELTA*.8;
 chargeTimerDuration=0;

@@ -1,4 +1,4 @@
-if(dashTimer>0){
+ if(dashTimer>0){
 	dashTimer--;
 }
 

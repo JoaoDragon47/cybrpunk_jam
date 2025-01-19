@@ -10,6 +10,10 @@ damage=attackBaseDamage;
 attackTimer=DELTA*.5;
 hittedPlayer=false;
 
+maxHealth=10;
+actualHealth=maxHealth;
+
+
 spdHorizontalDive=4;
 spdDive=16;
 attackRange=170;

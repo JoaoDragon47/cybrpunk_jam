@@ -153,8 +153,8 @@ function PlayerChooseAttack(){
 				image_yscale: 2
 			});
 			_hit.target=self;
-			hitForce=hitForceBase*3;
-			damage=attackBaseDamage*3;
+			hitForce=hitForceBase*7;
+			damage=attackBaseDamage*7;
 			
 			state=PlayerStateChargedAttack2;
 		}else{
@@ -164,8 +164,8 @@ function PlayerChooseAttack(){
 				image_xscale: _dirAtk
 			});
 			_hit.target=self;
-			hitForce=hitForceBase*1.5;
-			damage=attackBaseDamage*1.5;
+			hitForce=hitForceBase*3;
+			damage=attackBaseDamage*3;
 			
 			state=PlayerStateChargedAttack1;
 		}
