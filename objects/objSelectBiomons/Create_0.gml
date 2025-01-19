@@ -1,3 +1,5 @@
+if(audio_is_playing(sndStageMusic)) audio_stop_sound(sndStageMusic);
+
 enum BiomonsTypes{
 	Health,MovementSpeed,JumpSpeed,
 	SwordDamage,ShieldDamageFront,ShieldDamageBack,

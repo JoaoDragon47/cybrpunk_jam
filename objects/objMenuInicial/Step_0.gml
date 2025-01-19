@@ -103,7 +103,7 @@ if inputting {
 				break;
 				
 			case MenuElementType.Slider:
-				ds_grid[# 3, menuOption[page]] += (.2 * input);
+				ds_grid[# 3, menuOption[page]] += (.1 * input);
 				ds_grid[# 3, menuOption[page]] = clamp(ds_grid[# 3, menuOption[page]], 0, 1);
 				
 				//audio_play_sound(sndUIOption1,5,false);

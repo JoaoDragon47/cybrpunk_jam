@@ -123,6 +123,7 @@ if(biomonsSelected>=3){
 				attackBaseDamage=global.PlayerStats.swordDamage;
 			}
 			
+			if(!audio_is_playing(sndStageMusic)) audio_play_sound(sndStageMusic,1,true,.3);
 			stopPlayer=false;
 			
 			instance_destroy();

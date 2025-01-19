@@ -316,11 +316,9 @@ function exitGame() {
 function changeGameVolume() {
 	var value = argument[0]
 	
-	//switch menuOption[page] {
-	//	default: audio_master_gain(value) break;
-	//	case 1: audio_group_set_gain(sfxSounds,value,0) break;
-	//	case 2: audio_group_set_gain(musicSounds,value,0) break;
-	//}
+	switch menuOption[page] {
+		default: audio_master_gain(value) break;
+	}
 }
 
 //function changeGameResolution() {

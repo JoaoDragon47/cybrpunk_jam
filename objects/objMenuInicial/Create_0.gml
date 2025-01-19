@@ -10,7 +10,8 @@ enum MenuElementType {
 
 enum MenuPage {
 	Main,
-	Credits,
+	Options,
+	Credits
 }
 /*
 ScriptRunner ->		["NOME", MenuElementType.ScriptRunner, script_to_run],
@@ -23,8 +24,14 @@ Input ->			["NOME", MenuElementType.Input, "global_value", InitialValue],
 
 dsMenuMain = createMenuPage(
 	["Start",MenuElementType.ScriptRunner,startGame],
+	["Options",MenuElementType.PageTransfer,MenuPage.Options],
 	["Credits",MenuElementType.PageTransfer,MenuPage.Credits],
 	["Exit",MenuElementType.Warning, exitGame, 1, ["Yes", "No"]]
+)
+
+dsMenuOptions = createMenuPage(
+	["Volume",MenuElementType.Slider,changeGameVolume,audio_get_master_gain(audiogroup_default),[0,1]],
+	["Back",MenuElementType.PageTransfer,MenuPage.Main]
 )
 
 dsMenuCredits = createMenuPage(
@@ -37,6 +44,7 @@ dsMenuCredits = createMenuPage(
 page = MenuPage.Main;
 menuPages = [
 	dsMenuMain,
+	dsMenuOptions,
 	dsMenuCredits
 ];
 
