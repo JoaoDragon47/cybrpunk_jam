@@ -206,6 +206,20 @@ function ChargerStateIdle(){
 	}
 }
 
+function ChargerJumpToPlatform(){
+	if(!isOnFloor){
+		vspd+=GRAVITY;
+	}
+	
+	hspd=lengthdir_x(spd,dir);
+	
+	DetectCollision();
+	
+	if(place_meeting(x,bbox_bottom+1,layer_tilemap_get_id("collision"))){
+		state=ChargerStateIdle;
+	}
+}
+
 function ChargerStateRunToPlayer(){
 	if(!isOnFloor){
 		vspd+=GRAVITY;
@@ -225,6 +239,7 @@ function ChargerStateChargeDash(){
 	}
 	
 	DetectCollision();
+	
 	charge--;
 	if(charge<=0){
 		chargeTimerDuration=chargeDuration;
@@ -248,6 +263,10 @@ function ChargerStateDash(){
 			objPlayer.actualHealth-=damage;
 			hittedPlayer=true;
 		}
+	}
+	
+	if(!place_meeting(hspd>0 ? bbox_right+1 : bbox_left-1,bbox_bottom-1,layer_tilemap_get_id("collision"))){
+		chargeTimerDuration=0;
 	}
 	
 	chargeTimerDuration--

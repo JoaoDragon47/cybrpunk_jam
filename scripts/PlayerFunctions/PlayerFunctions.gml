@@ -110,11 +110,22 @@ function PlayerDetectDashKey(){
 }
 
 function PlayerDetectAttackCharge(){
-	if(isOnFloor){
-		if(InputsFunctions.PressAttack()){
-			attackCharge=0;
-			isInAction=true;
-			state=PlayerStateChargeAttack;
+	attackTimer--;
+	if(attackTimer<=0){
+		if(isOnFloor){
+			if(InputsFunctions.PressAttack()){
+				attackTimer=attackCooldown;
+				attackCharge=0;
+				isInAction=true;
+				state=PlayerStateChargeAttack;
+			}
+		}else{
+			if(InputsFunctions.PressAttack()){
+				attackTimer=attackCooldown;
+				attackCharge=0;
+				isInAction=true;
+				state=PlayerStateChargeAttackOnAir;
+			}
 		}
 	}
 }
@@ -137,11 +148,11 @@ function PlayerChooseAttack(){
 	if(attackCharge<minAttackCharge1){
 		//ATAQUE PADRÃO
 		var _hit=instance_create_layer(x,y,"attacks",objHitboxAttack,{
-			image_xscale: _dirAtk
+			image_xscale: _dirAtk*other.scaleHitboxAtk0
 		});
 		_hit.target=self;
-		hitForce=hitForceBase;
-		damage=attackBaseDamage;
+		hitForce=hitForceBase*multiplierAtkLvl0;
+		damage=attackBaseDamage*multiplierAtkLvl0;
 		
 		state=PlayerStateBasicAttack;
 	}else{
@@ -149,23 +160,23 @@ function PlayerChooseAttack(){
 			//ATAQUE CARREGADO 2
 			var _hit=instance_create_layer(x,y,"attacks",objHitboxAttack,{
 				image_blend: c_red,
-				image_xscale: _dirAtk*2,
-				image_yscale: 2
+				image_xscale: _dirAtk*other.scaleHitboxAtk2,
+				image_yscale: other.scaleHitboxAtk2
 			});
 			_hit.target=self;
-			hitForce=hitForceBase*7;
-			damage=attackBaseDamage*7;
+			hitForce=hitForceBase*multiplierAtkLvl2;
+			damage=attackBaseDamage*multiplierAtkLvl2;
 			
 			state=PlayerStateChargedAttack2;
 		}else{
 			//ATAQUE CARREGADO 1
 			var _hit=instance_create_layer(x,y,"attacks",objHitboxAttack,{
 				image_blend: c_yellow,
-				image_xscale: _dirAtk
+				image_xscale: _dirAtk*other.scaleHitboxAtk1
 			});
 			_hit.target=self;
-			hitForce=hitForceBase*3;
-			damage=attackBaseDamage*3;
+			hitForce=hitForceBase*multiplierAtkLvl1;
+			damage=attackBaseDamage*multiplierAtkLvl1;
 			
 			state=PlayerStateChargedAttack1;
 		}

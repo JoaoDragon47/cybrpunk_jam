@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprPlayerIdle",
-    "path":"sprites/sprPlayerIdle/sprPlayerIdle.yy",
+    "name":"sprCollider",
+    "path":"sprites/sprCollider/sprCollider.yy",
   },
   "spriteMaskId":null,
   "visible":false,

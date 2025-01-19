@@ -39,5 +39,5 @@
     "path":"sprites/sprHitboxAttack/sprHitboxAttack.yy",
   },
   "spriteMaskId":null,
-  "visible":false,
+  "visible":true,
 }

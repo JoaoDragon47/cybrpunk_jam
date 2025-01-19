@@ -1,12 +1,12 @@
 event_inherited();
 
-maxHealth=100;
+maxHealth=variable_global_exists("PlayerStats") ? global.PlayerStats.vida : 100;
 actualHealth=maxHealth;
 
-walkSpd=4;
+walkSpd=variable_global_exists("PlayerStats") ? global.PlayerStats.walkSpd : 4;
 spd=walkSpd;
 
-jumpSpd=5;					//FORÇA DO PULO
+jumpSpd=variable_global_exists("PlayerStats") ? global.PlayerStats.jumpSpd : 5;					//FORÇA DO PULO
 pressJumpKey=-1;
 holdJumpKey=-1;
 jumpHoldFrames=DELTA*.25;
@@ -28,8 +28,10 @@ dashTimer=dashCooldown;
 dashDuration=DELTA*0.3;			//DURAÇÃO DO DASH
 dashTimerDuration=dashDuration;
 
+attackCooldown=DELTA*.2;		//COOLDOWN DE UM ATAQUE PRO OUTRO
+attackTimer=attackCooldown;
 canAttack=true;
-attackBaseDamage=20;			//DANO BASE DO ATAQUE
+attackBaseDamage=variable_global_exists("PlayerStats") ? global.PlayerStats.swordDamage : 20;			//DANO BASE DO ATAQUE
 attackDamage=attackBaseDamage;
 attackCharge=0;
 minAttackCharge1=DELTA*0.5;		//TEMPO DE CARGA PARA O LVL 1 DO ATAQUE
@@ -39,8 +41,17 @@ hitForce=hitForceBase;
 hitLen=0;
 hitDir=0;
 
-shieldBaseDamageFront=10;
-shieldBaseDamageBack=10;
+//SESSÃO PARA AS HITBOXS DE ATAQUE
+scaleHitboxAtk0=		1;		//ESCALA DA HITBOX DO ATAQUE NO LEVEL 0
+scaleHitboxAtk1=		1;		//ESCALA DA HITBOX DO ATAQUE NO LEVEL 1
+scaleHitboxAtk2=		2;		//ESCALA DA HITBOX DO ATAQUE NO LEVEL 2
+multiplierAtkLvl0=		1;		//MULTIPLICADOR DE DANO DO ATAQUE NO LEVEL 0
+multiplierAtkLvl1=		3;		//MULTIPLICADOR DE DANO DO ATAQUE NO LEVEL 1
+multiplierAtkLvl2=		7;		//MULTIPLICADOR DE DANO DO ATAQUE NO LEVEL 2
+//////////////////////////////////
+
+shieldBaseDamageFront=variable_global_exists("PlayerStats") ? global.PlayerStats.shieldDamageFront : 10;
+shieldBaseDamageBack=variable_global_exists("PlayerStats") ? global.PlayerStats.shieldDamageBack : 10;
 shieldDamage=shieldBaseDamageFront;
 posAttackTimer=0;
 minShieldCharge=DELTA*1;		//TEMPO DE CARGA PARA ARREMESSAR O ESCUDO

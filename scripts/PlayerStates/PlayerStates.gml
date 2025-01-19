@@ -42,6 +42,7 @@ function PlayerStateJump(){
 	
 	PlayerDetectDashKey();
 	PlayerDetectJumpKey();
+	PlayerDetectAttackCharge();
 }
 
 function PlayerStateFall(){
@@ -50,6 +51,7 @@ function PlayerStateFall(){
 	
 	PlayerDetectDashKey();
 	PlayerDetectJumpKey();
+	PlayerDetectAttackCharge();
 }
 
 function PlayerStateDash(){
@@ -81,7 +83,12 @@ function PlayerStateChargeAttack(){
 	isInAction=true;
 	attackCharge++;
 	attackCharge=clamp(attackCharge,0,minAttackCharge2);
-	if(hspd!=0) dir=point_direction(x,y,x+hspd,y);
+	if(hspd!=0) {
+		sprite_index=sprPlayerWalk;
+		dir=point_direction(x,y,x+hspd,y);
+	}else{
+		sprite_index=sprPlayerIdle;
+	}
 	
 	PlayerDetectMovement();
 	
@@ -93,8 +100,29 @@ function PlayerStateChargeAttack(){
 	}
 }
 
+function PlayerStateChargeAttackOnAir(){
+	isInAction=true;
+	attackCharge++;
+	attackCharge=clamp(attackCharge,0,minAttackCharge2);
+	if(hspd!=0) dir=point_direction(x,y,x+hspd,y);
+	
+	PlayerDetectMovement();
+	PlayerDetectDashKey();
+	
+	if(place_meeting(x,bbox_bottom+1,layer_tilemap_get_id("collision"))){
+		sprite_index=sprPlayerIdle;
+		state=PlayerStateChargeAttack;
+	}
+	
+	if(!InputsFunctions.HoldAttack()){
+		PlayerChooseAttack();
+	}
+}
+
 function PlayerStateBasicAttack(){
 	PlayerDetectMovement();
+	
+	PlayerDetectJumpKey();
 	
 	PlayerAttackEnd();
 }
@@ -102,11 +130,15 @@ function PlayerStateBasicAttack(){
 function PlayerStateChargedAttack1(){
 	PlayerDetectMovement();
 	
+	PlayerDetectJumpKey();
+	
 	PlayerAttackEnd();
 }
 
 function PlayerStateChargedAttack2(){
 	PlayerDetectMovement();
+	
+	PlayerDetectJumpKey();
 	
 	PlayerAttackEnd();
 }

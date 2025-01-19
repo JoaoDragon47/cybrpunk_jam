@@ -17,3 +17,4 @@ state=function(){return};
 
 hitbox=instance_create_layer(x,y,"hitbox",objHitbox);
 hitbox.target=self;
+hitbox.mask_index=sprite_index;

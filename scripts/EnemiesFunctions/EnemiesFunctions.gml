@@ -60,6 +60,14 @@ function ChargerDetectPlayerOnSamePlatform(){
 		hspd=0;
 		charge=chargeCooldown;
 		state=ChargerStateChargeDash;
+	}else{
+		if(objPlayer.bbox_bottom<bbox_top){
+			if(place_meeting(x+lengthdir_x(32,dir),y,layer_tilemap_get_id("collision"))){
+				dir=point_direction(x,y,x+hspd,y);
+				vspd=-6;
+				state=ChargerJumpToPlatform;
+			}
+		}
 	}
 }
 
