@@ -65,3 +65,5 @@ shield.target=self;
 
 debug=true;
 if(debug) show_debug_overlay(true,true);
+
+mask_index=sprPlayerIdle;

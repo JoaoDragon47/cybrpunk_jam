@@ -73,13 +73,15 @@ function PlayerDetectJumpKey(){
 		coyoteTimer=coyoteFrames;
 		jumpTimer=jumpHoldFrames;
 		isInAction=false;
-		attackCharge=0;
-		shieldCharge=0;
+		//attackCharge=0;
+		//shieldCharge=0;
 		
 		spd=walkSpd;
 		shield.defend=false;
 		
-		state=PlayerStateJump;
+		if(attackCharge<=0 and shieldCharge<=0){
+			state=PlayerStateJump;
+		}
 	}
 		
 	if(!InputsFunctions.HoldJump()) jumpTimer=0;

@@ -63,9 +63,11 @@ function ChargerDetectPlayerOnSamePlatform(){
 	}else{
 		if(objPlayer.bbox_bottom<bbox_top){
 			if(place_meeting(x+lengthdir_x(32,dir),y,layer_tilemap_get_id("collision"))){
-				dir=point_direction(x,y,x+hspd,y);
-				vspd=-6;
-				state=ChargerJumpToPlatform;
+				if(isOnFloor){
+					dir=point_direction(x,y,x+hspd,y);
+					vspd=-6;
+					state=ChargerJumpToPlatform;
+				}
 			}
 		}
 	}
@@ -75,9 +77,11 @@ function BatDetectPlayer(){
 	var _distanceToPlayer=point_distance(x,bbox_bottom,objPlayer.x,bbox_bottom);
 	if(_distanceToPlayer<=attackRange){
 		if(_distanceToPlayer>safeRange){
-			dir=point_direction(x,y,objPlayer.x,y);
-			vspd=spdDive;
-			state=BatStateDiveDown;
+			if(!collision_line(x,bbox_bottom,objPlayer.x,objPlayer.bbox_top,layer_tilemap_get_id("collision"),false,true)){
+				dir=point_direction(x,y,objPlayer.x,y);
+				vspd=spdDive;
+				state=BatStateDiveDown;
+			}
 		}
 	}
 }

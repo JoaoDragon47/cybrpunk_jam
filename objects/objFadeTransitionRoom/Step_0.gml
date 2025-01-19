@@ -9,5 +9,6 @@ if (alpha >= 1 and !roomTransited) {
 }
 
 if (roomTransited and alpha <= 0) {
+	stopPlayer=false;
 	instance_destroy()
 }

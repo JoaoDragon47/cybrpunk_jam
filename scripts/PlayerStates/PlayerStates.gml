@@ -96,6 +96,7 @@ function PlayerStateChargeAttack(){
 	PlayerDetectJumpKey();
 	
 	if(!InputsFunctions.HoldAttack()){
+		image_index=0;
 		PlayerChooseAttack();
 	}
 }
@@ -115,11 +116,13 @@ function PlayerStateChargeAttackOnAir(){
 	}
 	
 	if(!InputsFunctions.HoldAttack()){
+		image_index=0;
 		PlayerChooseAttack();
 	}
 }
 
 function PlayerStateBasicAttack(){
+	sprite_index=sprPlayerAttack;
 	PlayerDetectMovement();
 	
 	PlayerDetectJumpKey();
@@ -128,6 +131,7 @@ function PlayerStateBasicAttack(){
 }
 
 function PlayerStateChargedAttack1(){
+	sprite_index=sprPlayerAttack;
 	PlayerDetectMovement();
 	
 	PlayerDetectJumpKey();
@@ -136,6 +140,7 @@ function PlayerStateChargedAttack1(){
 }
 
 function PlayerStateChargedAttack2(){
+	sprite_index=sprPlayerAttack;
 	PlayerDetectMovement();
 	
 	PlayerDetectJumpKey();

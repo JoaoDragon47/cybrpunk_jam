@@ -221,7 +221,7 @@ function ChargerJumpToPlatform(){
 	
 	DetectCollision();
 	
-	if(place_meeting(x,bbox_bottom+1,layer_tilemap_get_id("collision"))){
+	if(place_meeting(x,y+1,layer_tilemap_get_id("collision"))){
 		state=ChargerStateIdle;
 	}
 }
@@ -347,7 +347,7 @@ function BatStateDiveDown(){
 		}
 	}
 	
-	if(place_meeting(x,bbox_bottom+1,objCollider) or vspd<0){
+	if(place_meeting(x,y+1,objCollider) or vspd<0){
 		vspd=0;
 		state=BatStateDiveUp;
 	}
