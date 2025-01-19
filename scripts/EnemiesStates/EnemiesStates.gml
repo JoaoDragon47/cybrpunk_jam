@@ -53,6 +53,7 @@ function SniperStateIdle(){
 	}
 	
 	DetectCollision();
+	image_xscale=lengthdir_x(1,dir);
 	
 	xDest=objPlayer.x;
 	if(point_distance(x,y,xDest,y)<viewRange){
@@ -76,6 +77,7 @@ function SniperStateWalk(){
 	xDest=objPlayer.x;
 	dir=point_direction(x,y,xDest,y);
 	hspd=lengthdir_x(spd,dir);
+	image_xscale=lengthdir_x(1,dir);
 	
 	if(!place_meeting((dir>90 ? bbox_left : bbox_right)+hspd,y+1,objCollider)){
 		spd=walkSpd;
@@ -112,6 +114,7 @@ function SniperStateJumpAway(){
 	}
 	
 	hspd=lengthdir_x(jumpAwaySpd,dir);
+	image_xscale=lengthdir_x(1,dir);
 	
 	DetectCollision();
 	
@@ -131,6 +134,7 @@ function SniperStateRunAway(){
 	}
 	dir=point_direction(objPlayer.x,y,x,y);
 	hspd=lengthdir_x(spd,dir);
+	image_xscale=lengthdir_x(1,dir);
 	
 	if(!place_meeting((dir>90 ? bbox_left : bbox_right)+hspd,y+1,objCollider)){
 		spd=walkSpd;
@@ -161,6 +165,7 @@ function SniperStateAiming(){
 	}
 	
 	DetectCollision();
+	image_xscale=lengthdir_x(1,dir);
 	
 	aimingTimer--;
 	SniperDetectDodge();
@@ -212,6 +217,7 @@ function ChargerJumpToPlatform(){
 	}
 	
 	hspd=lengthdir_x(spd,dir);
+	image_xscale=lengthdir_x(1,dir);
 	
 	DetectCollision();
 	
@@ -227,6 +233,7 @@ function ChargerStateRunToPlayer(){
 	
 	dir=point_direction(x,y,objPlayer.x,y);
 	hspd=lengthdir_x(spd,dir);
+	image_xscale=lengthdir_x(1,dir);
 	
 	DetectCollision();
 	
@@ -253,6 +260,7 @@ function ChargerStateDash(){
 	}
 	
 	hspd=lengthdir_x(spdCharge,dir);
+	image_xscale=lengthdir_x(1,dir);
 	
 	DetectCollision();
 	
@@ -326,6 +334,7 @@ function BatStateDiveDown(){
 	}
 	
 	hspd=lengthdir_x(spdHorizontalDive,dir);
+	image_xscale=lengthdir_x(1,dir);
 	
 	DetectCollision();
 	
@@ -348,6 +357,7 @@ function BatStateDiveUp(){
 	vspd-=GRAVITY;
 	
 	hspd=lengthdir_x(spdHorizontalDive,dir);
+	image_xscale=lengthdir_x(1,dir);
 	
 	DetectCollision();
 	

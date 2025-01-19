@@ -86,6 +86,8 @@
     {"id":{"name":"sprPlayerThrowShield","path":"sprites/sprPlayerThrowShield/sprPlayerThrowShield.yy",},},
     {"id":{"name":"sprPlayerWalk","path":"sprites/sprPlayerWalk/sprPlayerWalk.yy",},},
     {"id":{"name":"sprShield","path":"sprites/sprShield/sprShield.yy",},},
+    {"id":{"name":"sprSmasher","path":"sprites/sprSmasher/sprSmasher.yy",},},
+    {"id":{"name":"sprSniper","path":"sprites/sprSniper/sprSniper.yy",},},
     {"id":{"name":"stage_tracing","path":"sprites/stage_tracing/stage_tracing.yy",},},
     {"id":{"name":"TileSet2","path":"tilesets/TileSet2/TileSet2.yy",},},
   ],

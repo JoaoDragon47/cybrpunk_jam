@@ -35,8 +35,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprEnemie",
-    "path":"sprites/sprEnemie/sprEnemie.yy",
+    "name":"sprSniper",
+    "path":"sprites/sprSniper/sprSniper.yy",
   },
   "spriteMaskId":null,
   "visible":true,

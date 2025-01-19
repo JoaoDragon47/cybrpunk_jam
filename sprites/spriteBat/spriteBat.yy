@@ -1,10 +1,10 @@
 {
   "$GMSprite":"",
   "%Name":"spriteBat",
-  "bboxMode":0,
+  "bboxMode":2,
   "bbox_bottom":20,
   "bbox_left":2,
-  "bbox_right":30,
+  "bbox_right":29,
   "bbox_top":10,
   "collisionKind":1,
   "collisionTolerance":0,
@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Sprites",
-    "path":"folders/Sprites.yy",
+    "name":"Enemies",
+    "path":"folders/Sprites/Enemies.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
