@@ -33,13 +33,15 @@ var i=0;repeat(BiomonsTypes.Height){
 		}
 	}
 	
+	draw_align(fa_middle,fa_center);
 	draw_sprite_ext(Pixel,0,_xBiomonType+xOff,_yBiomonType,_wBiomonItemListArea,_hBiomonItemListArea,0,_color,_alpha);
+	draw_text_ext_transformed(_xBiomonType+xOff+(_wBiomonItemListArea/2),_yBiomonType+(_hBiomonItemListArea/2),biomonsTypesName[i],12,_wBiomonItemListArea,1,1,0);
 	
 	i++;
 }
 
 var _xCenterSlot=((gw-_wList)/2)+_wList;
-var _wBiomonSlot=96*hudScale,_hBiomonSlot=128*hudScale;
+var _wBiomonSlot=192*hudScale,_hBiomonSlot=128*hudScale;
 var _bufferBiomonSlot=32*hudScale;
 var _xBiomonSlotInitial=_xCenterSlot-((hGrid/2)*_wBiomonSlot)-(((hGrid-1)/2)*_bufferBiomonSlot),_yBiomonSlotInitial=(gh/2)-(_hBiomonSlot/2);
 i=0;repeat(hGrid){
@@ -55,7 +57,7 @@ i=0;repeat(hGrid){
 		_alpha=.6;
 		if(mouse_check_button_pressed(mb_left)){
 			if(arrayOptions[option]!=i){
-				if(biomonsSelected<3){
+				if(biomonsSelected<biomonsMax){
 					arrayOptions[option]=i;
 					if(ds_map_find_value(biomonSlots,$"Slot{string(option)}")==undefined){
 						biomonsSelected++;
@@ -77,8 +79,8 @@ i=0;repeat(hGrid){
 	}
 	
 	draw_sprite_ext(Pixel,0,_xBiomonSlot,_yBiomonSlot,_wBiomonSlot,_hBiomonSlot,0,_color,_alpha);
-	draw_set_valign(fa_middle);draw_set_halign(fa_center);
-	draw_text(_xBiomonSlot+(_wBiomonSlot/2),_yBiomonSlot+(_hBiomonSlot/2),grid[# 0,i]);
+	draw_align(fa_middle,fa_center);
+	draw_text_ext(_xBiomonSlot+(_wBiomonSlot/2),_yBiomonSlot+(_hBiomonSlot/2),grid[# 0,i],24,_wBiomonSlot);
 	
 	
 	i++;
@@ -88,7 +90,7 @@ var _wReadyButton=64*hudScale,_hReadyButton=32*hudScale;
 var _xReadyButton=_xCenterSlot-(_wReadyButton/2),_yReadyButton=gh-_hMarginList-_hReadyButton;
 _alpha=1;
 
-if(biomonsSelected>=3){
+if(biomonsSelected>=biomonsMax){
 	if(point_in_rectangle(mx,my,_xReadyButton,_yReadyButton,_xReadyButton+_wReadyButton,_yReadyButton+_hReadyButton)){
 		_alpha=.6;
 		if(mouse_check_button_pressed(mb_left)){
@@ -97,10 +99,19 @@ if(biomonsSelected>=3){
 				var _index=ds_map_find_value(biomonSlots,_biomon);
 				var _grid=biomonsArray[_index];
 				var _slot=arrayOptions[_index];
-				var _variableName=_grid[# 2,_slot];
-				var _value=_grid[# 1,_slot];
 				
-				struct_set(global.PlayerStats,_variableName,_value)
+				var _firstVariableName=		_grid[# 2,_slot];
+				var _firstValue=			_grid[# 1,_slot];
+				var _firstOlderValue=		struct_get(global.PlayerStats,_firstVariableName);
+				
+				struct_set(global.PlayerStats,_firstVariableName,_firstOlderValue+_firstValue);
+				
+				var _secondVariableName=	_grid[# 4,_slot];
+				var _secondValue=			_grid[# 3,_slot];
+				var _secondOlderValue=		struct_get(global.PlayerStats,_secondVariableName);
+				var _secondNewValue=		clamp(_secondOlderValue+_secondValue,0,_secondOlderValue);
+				
+				struct_set(global.PlayerStats,_secondVariableName,_secondNewValue);
 				
 				_biomon=ds_map_find_next(biomonSlots,_biomon);
 				i++;
@@ -109,21 +120,25 @@ if(biomonsSelected>=3){
 			//instance_create_layer(35,1968,"entities",objPlayer);
 			//instance_activate_object(objPlayer);
 			with(objPlayer){
-				maxHealth=global.PlayerStats.vida;
+				maxHealth=					global.PlayerStats.vida;
 				actualHealth=maxHealth;
 				
-				walkSpd=global.PlayerStats.walkSpd;
-				spd=walkSpd;
+				dashSpd=					global.PlayerStats.dashSpd;
+				jumpSpd=					global.PlayerStats.jumpSpd;	
 				
-				jumpSpd=global.PlayerStats.jumpSpd;	
-				
-				shieldBaseDamageFront=global.PlayerStats.shieldDamageFront;
-				shieldBaseDamageBack=global.PlayerStats.shieldDamageBack;
+				shieldBaseDamageFront=		global.PlayerStats.shieldDamageFront;
+				shieldBaseDamageBack=		global.PlayerStats.shieldDamageBack;
+				shieldReduceDamage=			global.PlayerStats.shieldReduceDamage;
 				
 				attackBaseDamage=global.PlayerStats.swordDamage;
 			}
 			
-			if(!audio_is_playing(sndStageMusic)) audio_play_sound(sndStageMusic,1,true,.3);
+			if(room==bossStage){
+				if(!audio_is_playing(sndBossStage)) audio_play_sound(sndBossStage,1,true,.3);
+			}else{
+				if(!audio_is_playing(sndStageMusic)) audio_play_sound(sndStageMusic,1,true,.3);
+			}
+			
 			stopPlayer=false;
 			
 			instance_destroy();

@@ -55,6 +55,7 @@
     {"id":{"name":"objSelectBiomons","path":"objects/objSelectBiomons/objSelectBiomons.yy",},},
     {"id":{"name":"objShield","path":"objects/objShield/objShield.yy",},},
     {"id":{"name":"objShowStageCompleted","path":"objects/objShowStageCompleted/objShowStageCompleted.yy",},},
+    {"id":{"name":"objShowThanksForPlaying","path":"objects/objShowThanksForPlaying/objShowThanksForPlaying.yy",},},
     {"id":{"name":"objSmasher","path":"objects/objSmasher/objSmasher.yy",},},
     {"id":{"name":"objSniper","path":"objects/objSniper/objSniper.yy",},},
     {"id":{"name":"objSniperBullet","path":"objects/objSniperBullet/objSniperBullet.yy",},},
@@ -63,6 +64,7 @@
     {"id":{"name":"bossStage","path":"rooms/bossStage/bossStage.yy",},},
     {"id":{"name":"rmMenu","path":"rooms/rmMenu/rmMenu.yy",},},
     {"id":{"name":"rmStageCompleted","path":"rooms/rmStageCompleted/rmStageCompleted.yy",},},
+    {"id":{"name":"rmThanksForPlaying","path":"rooms/rmThanksForPlaying/rmThanksForPlaying.yy",},},
     {"id":{"name":"stage1","path":"rooms/stage1/stage1.yy",},},
     {"id":{"name":"stage2","path":"rooms/stage2/stage2.yy",},},
     {"id":{"name":"Cheats","path":"scripts/Cheats/Cheats.yy",},},
@@ -108,6 +110,7 @@
     {"roomId":{"name":"stage2","path":"rooms/stage2/stage2.yy",},},
     {"roomId":{"name":"rmStageCompleted","path":"rooms/rmStageCompleted/rmStageCompleted.yy",},},
     {"roomId":{"name":"bossStage","path":"rooms/bossStage/bossStage.yy",},},
+    {"roomId":{"name":"rmThanksForPlaying","path":"rooms/rmThanksForPlaying/rmThanksForPlaying.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[

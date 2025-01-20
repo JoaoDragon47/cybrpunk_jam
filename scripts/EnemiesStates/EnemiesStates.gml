@@ -267,10 +267,11 @@ function ChargerStateDash(){
 	if(place_meeting(x,y,objPlayer) and !hittedPlayer){
 		if(objPlayer.shield.defend){
 			chargeTimerDuration=0;
+			objPlayer.actualHealth-=(damage-objPlayer.shieldReduceDamage);
 		}else{
 			objPlayer.actualHealth-=damage;
-			hittedPlayer=true;
 		}
+		hittedPlayer=true;
 	}
 	
 	if(!place_meeting(hspd>0 ? bbox_right+1 : bbox_left-1,bbox_bottom-1,layer_tilemap_get_id("collision"))){
@@ -339,12 +340,13 @@ function BatStateDiveDown(){
 	DetectCollision();
 	
 	if(place_meeting(x,y,objPlayer) and !hittedPlayer){
-		hittedPlayer=true;
-		if(place_meeting(x,y,objShield) and objPlayer.shield.defend){
+		if(objPlayer.shield.defend){
 			vspd=0;
+			objPlayer.actualHealth-=(damage-objPlayer.shieldReduceDamage);
 		}else{
 			objPlayer.actualHealth-=damage;
 		}
+		hittedPlayer=true;
 	}
 	
 	if(place_meeting(x,y+1,objCollider) or vspd<0){
@@ -362,12 +364,12 @@ function BatStateDiveUp(){
 	DetectCollision();
 	
 	if(place_meeting(x,y,objPlayer) and !hittedPlayer){
-		hittedPlayer=true;
-		if(place_meeting(x,y,objShield) and objPlayer.shield.defend){
-			exit;
+		if(objPlayer.shield.defend){
+			objPlayer.actualHealth-=(damage-objPlayer.shieldReduceDamage);
 		}else{
 			objPlayer.actualHealth-=damage;
 		}
+		hittedPlayer=true;
 	}
 	
 	if(place_meeting(x,bbox_top-1,layer_tilemap_get_id("collision"))){
@@ -443,12 +445,12 @@ function SmasherStateDashWithPunch(){
 	DetectCollision();
 	
 	if(place_meeting(x,y,objPlayer) and !hittedPlayer){
-		hittedPlayer=true;
-		if(place_meeting(x,y,objShield) and objPlayer.shield.defend){
-			exit;
+		if(objPlayer.shield.defend){
+			objPlayer.actualHealth-=(damage-objPlayer.shieldReduceDamage);
 		}else{
 			objPlayer.actualHealth-=damage;
 		}
+		hittedPlayer=true;
 	}
 	
 	dashWithPunchTimer--;
@@ -467,12 +469,12 @@ function SmasherStateConsecutivePunchs(){
 	DetectCollision();
 	
 	if(place_meeting(x,y,objPlayer) and !hittedPlayer){
-		hittedPlayer=true;
-		if(place_meeting(x,y,objShield) and objPlayer.shield.defend){
-			exit;
+		if(objPlayer.shield.defend){
+			objPlayer.actualHealth-=(damage-objPlayer.shieldReduceDamage);
 		}else{
 			objPlayer.actualHealth-=damage;
 		}
+		hittedPlayer=true;
 	}
 	
 	if(spd<=0){
@@ -506,12 +508,12 @@ function SmasherStateJumpTowardsPlayer(){
 	
 	//APLICAR DANO AO JOGADOR
 	if(place_meeting(x,y,objPlayer) and !hittedPlayer){
-		hittedPlayer=true;
-		if(place_meeting(x,y,objShield) and objPlayer.shield.defend){
-			exit;
+		if(objPlayer.shield.defend){
+			objPlayer.actualHealth-=(damage-objPlayer.shieldReduceDamage);
 		}else{
 			objPlayer.actualHealth-=damage;
 		}
+		hittedPlayer=true;
 	}
 	
 	if(place_meeting(x,y+1,layer_tilemap_get_id("collision"))){

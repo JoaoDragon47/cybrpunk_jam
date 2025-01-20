@@ -1,0 +1,1 @@
+draw_healthbar(64*hudScale,32*hudScale,display_get_gui_width()-(64*hudScale),(32*hudScale)+(16*hudScale),(actualHealth / maxHealth)*100,c_black,c_red,c_green,0,true,true);

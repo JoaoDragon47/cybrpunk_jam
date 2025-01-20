@@ -9,7 +9,7 @@ enum BiomonsTypes{
 
 global.PlayerStats={
 	vida: 100,
-	walkSpd: 4,
+	dashSpd: 7,
 	jumpSpd: 5,
 	swordDamage: 10,
 	shieldDamageFront: 10,
@@ -19,51 +19,59 @@ global.PlayerStats={
 
 biomonSlotTypeActual=0;
 
+biomonsTypesName=[
+	"Health","Dash Speed","Jump Force","Sword Damage","Shield Forward Damage","Shield Return Damage","Defense"
+]
+biomonsMax=2;
 biomonsSelected=0;
 biomonSlots=ds_map_create();
 
-//biomonSlot1=false;
-//biomonSlot2=false;
-//biomonSlot3=false;
+/*
+Montagem de um biomon abaixo:
+
+["texto_exibido", valor_a_aumentar, nome_da_variavel, valor_a_diminuir, nome_da_variavel]
+
+*/
+
 
 dsGridBiomonHealth=createMenuPage(
-	["Vida=100",100,	"vida",-1],
-	["Vida=100",100,	"vida",-1]
+	["Health +50\nSword Damage -5",					50,		"vida",					-5,		"swordDamage"],
+	["Health +100\nDefense -10",					100,	"vida",					-10,	"shieldReduceDamage"]
 )
 
-dsGridBiomonSpeed=createMenuPage(
-	["Speed=3",3,		"walkSpd",-1],
-	["Speed=10",10,		"walkSpd",-1]
+dsGridBiomonDashSpeed=createMenuPage(
+	["Dash +0.2\nJump Force -0.1",					0.2,	"dashSpd",				-0.1,	"jumpSpd"],
+	["Dash +0.5\nShield Return Damage -5",			0.5,	"dashSpd",				-5,		"shieldDamageBack"]
 )
 
 dsGridBiomonJump=createMenuPage(
-	["JumpSpeed=5",5,	"jumpSpd",-1],
-	["JumpSpeed=8",8,	"jumpSpd",-1]
+	["Jump Force +0.4\nDefense -5",					0.4,	"jumpSpd",				-5,		"shieldReduceDamage"],
+	["Jump Force +0.8\nDash -0.3",					0.8,	"jumpSpd",				-0.3,	"dashSpd"]
 )
 
 dsGridBiomonSwordDamage=createMenuPage(
-	["SwD1",50,			"swordDamage",-1],
-	["SwD2",100,		"swordDamage",-1]
+	["Sword Damage +5\nDash -0.3",					5,		"swordDamage",			-0.3,	"dashSpd"],
+	["Sword Damage +7\nJump Force -0.1",			7,		"swordDamage",			-0.1,	"jumpSpd"]
 )
 
 dsGridBiomonShieldDamageFront=createMenuPage(
-	["ShDF1",50,		"shieldDamageFront",-1],
-	["ShDF2",100,		"shieldDamageFront",-1]
+	["Shield Forward Damage +5\nJump Force -0.2",	5,		"shieldDamageFront",	-0.2,	"jumpSpd"],
+	["Shield Forward Damage +7\nDash -0.3",			7,		"shieldDamageFront",	-0.3,	"dashSpd"]
 )
 
 dsGridBiomonShieldDamageBack=createMenuPage(
-	["ShDB1",20,		"shieldDamageBack",-1],
-	["ShDB2",100,		"shieldDamageBack",-1]
+	["Shield Return Damage +5\nSword Damage -3",	5,		"shieldDamageBack",		-3,		"swordDamage"],
+	["Shield Return Damage +7\nDash -0.4",			7,		"shieldDamageBack",		-0.4,	"dashSpd"]
 )
 
 dsGridBiomonShieldDamageReduce=createMenuPage(
-	["ShDR1",100,		"shieldReduceDamage",-1],
-	["ShDR2",100,		"shieldReduceDamage",-1]
+	["Defense +2\nSword Damage -1",					2,		"shieldReduceDamage",	-1,		"swordDamage"],
+	["Defense +5\nShield Forward Damage -5",		5,		"shieldReduceDamage",	-5,		"shieldDamageFront"]
 )
 
 biomonsArray=[
 	dsGridBiomonHealth,
-	dsGridBiomonSpeed,
+	dsGridBiomonDashSpeed,
 	dsGridBiomonJump,
 	dsGridBiomonSwordDamage,
 	dsGridBiomonShieldDamageFront,

@@ -2,7 +2,7 @@ target=noone;
 
 wResolution=960;
 hResolution=540;
-scaleResolution=2;
+scaleResolution=room==bossStage ? 1 : 2;
 global.wCam=wResolution div scaleResolution;
 global.hCam=hResolution div scaleResolution;
 window_set_size(global.wCam*scaleResolution,global.hCam*scaleResolution);

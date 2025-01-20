@@ -3,7 +3,7 @@ event_inherited();
 maxHealth=variable_global_exists("PlayerStats") ? global.PlayerStats.vida : 100;
 actualHealth=maxHealth;
 
-walkSpd=variable_global_exists("PlayerStats") ? global.PlayerStats.walkSpd : 4;
+walkSpd=4;
 spd=walkSpd;
 
 jumpSpd=variable_global_exists("PlayerStats") ? global.PlayerStats.jumpSpd : 5;					//FORÇA DO PULO
@@ -18,7 +18,7 @@ jumpCount=0;
 
 dashMax=1;
 dashCount=0;
-dashSpd=7;						//FORÇA DO DASH
+dashSpd=variable_global_exists("PlayerStats") ? global.PlayerStats.dashSpd : 7;					//FORÇA DO DASH
 dashKey=-1;
 dashCooldown=DELTA*0.8;			//TEMPO ENTRE UM DASH E OUTRO
 /*
@@ -50,6 +50,7 @@ multiplierAtkLvl1=		3;		//MULTIPLICADOR DE DANO DO ATAQUE NO LEVEL 1
 multiplierAtkLvl2=		7;		//MULTIPLICADOR DE DANO DO ATAQUE NO LEVEL 2
 //////////////////////////////////
 
+shieldReduceDamage=variable_global_exists("PlayerStats") ? global.PlayerStats.shieldReduceDamage : 5;
 shieldBaseDamageFront=variable_global_exists("PlayerStats") ? global.PlayerStats.shieldDamageFront : 10;
 shieldBaseDamageBack=variable_global_exists("PlayerStats") ? global.PlayerStats.shieldDamageBack : 10;
 shieldDamage=shieldBaseDamageFront;
@@ -63,7 +64,7 @@ state=PlayerStateIdle;
 shield=instance_create_layer(x,y,"attacks",objShield);
 shield.target=self;
 
-debug=true;
+debug=false;
 if(debug) show_debug_overlay(true,true);
 
 mask_index=sprPlayerIdle;
