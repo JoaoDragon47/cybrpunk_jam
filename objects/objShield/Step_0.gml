@@ -27,6 +27,8 @@ switch(state){
 			hspd=lengthdir_x(throwSpd,dir);
 			vspd=lengthdir_y(throwSpd,dir);
 			
+			checkEnemy();
+			
 			y+=vspd;
 			
 			if(point_distance(x,y,target.x,target.y)<=16){

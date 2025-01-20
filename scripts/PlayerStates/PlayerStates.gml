@@ -177,7 +177,16 @@ function PlayerStateDefendShield(){
 	PlayerDetectDashKey();
 	PlayerDetectJumpKey();
 	
-	if(!InputsFunctions.HoldShield()){
+	
+	if(InputsFunctions.HoldShield()){
+		shieldCharge++;
+		isInAction=true;
+	}else{
+		//sprite_index=sprPlayerThrowShield;
+		if(shieldCharge>=minShieldCharge){
+			shield.state="throw";
+		}
+		shieldCharge=0;
 		spd=walkSpd;
 		isInAction=false;
 		shield.defend=false;

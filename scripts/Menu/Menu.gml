@@ -39,6 +39,7 @@ function drawMenu() {
 	var xbuff = 16*hudScale, ybuff = 48*hudScale;
 	var xinicial = (gw/4), yinicial = (gh/2) - (((ds_h-1)/2) * ybuff);
 	var c = firstColorOptions;
+	draw_set_font(fntGame);
 
 	//FUNDO
 	c = c_black;
@@ -46,10 +47,14 @@ function drawMenu() {
 	draw_rectangle_color(0,0,gw,gh,c,c,c,c,false);
 	draw_set_alpha(1);
 	
+	//CONTROLS
+	draw_align(fa_middle,fa_left);
+	if(page==MenuPage.Main){
+		draw_text(gw/2,gh/2,"Walk: A/D\nJump: Space\nDash: Shift\nAttack: Mouse Button Left\nDefense: Mouse Button Right\nHold Attack/Defense for a charge move")
+	}
+	
 	//LADO ESQUERDO
-	draw_set_valign(fa_middle);
-	draw_set_halign(fa_right);
-	draw_set_font(fntGame);
+	draw_align(fa_middle,fa_right);
 
 	//DESENHAR PÁGINA ANTERIOR
 	switch page {

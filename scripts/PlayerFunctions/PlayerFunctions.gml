@@ -133,13 +133,7 @@ function PlayerDetectAttackCharge(){
 }
 
 function PlayerDetectShieldCharge(){
-	if(posAttackTimer>0){
-		posAttackTimer--;
-		
-		if(InputsFunctions.HoldShield()){
-			state=PlayerStateChargeShield;
-		}
-	}else if(InputsFunctions.HoldShield()){
+	if(InputsFunctions.HoldShield()){
 		isInAction=true;
 		state=PlayerStateDefendShield;
 	}

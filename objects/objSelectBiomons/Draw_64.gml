@@ -5,6 +5,7 @@ var mx=device_mouse_x_to_gui(0),my=device_mouse_y_to_gui(0);
 var grid=biomonsArray[option],hGrid=ds_grid_height(grid);
 
 draw_set_font(fntGame);
+draw_align(fa_middle,fa_center);
 
 draw_sprite_ext(Pixel,0,0,0,gw,gh,0,c_black,1);
 
@@ -33,12 +34,13 @@ var i=0;repeat(BiomonsTypes.Height){
 		}
 	}
 	
-	draw_align(fa_middle,fa_center);
 	draw_sprite_ext(Pixel,0,_xBiomonType+xOff,_yBiomonType,_wBiomonItemListArea,_hBiomonItemListArea,0,_color,_alpha);
 	draw_text_ext_transformed(_xBiomonType+xOff+(_wBiomonItemListArea/2),_yBiomonType+(_hBiomonItemListArea/2),biomonsTypesName[i],12,_wBiomonItemListArea,1,1,0);
 	
 	i++;
 }
+
+draw_text_transformed(_wMarginList+(_wBiomonItemListArea/2),32*hudScale,"Biomons",1,1,0);
 
 var _xCenterSlot=((gw-_wList)/2)+_wList;
 var _wBiomonSlot=192*hudScale,_hBiomonSlot=128*hudScale;
@@ -86,6 +88,11 @@ i=0;repeat(hGrid){
 	i++;
 }
 
+draw_align(fa_top,fa_center);
+draw_text_transformed(_xCenterSlot,32*hudScale,"Choose 2 biomon of different types.\n These will alter your stats in an specific way.",1,1,0);
+
+
+draw_align(fa_middle,fa_center);
 var _wReadyButton=64*hudScale,_hReadyButton=32*hudScale;
 var _xReadyButton=_xCenterSlot-(_wReadyButton/2),_yReadyButton=gh-_hMarginList-_hReadyButton;
 _alpha=1;
